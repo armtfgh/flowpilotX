@@ -1,0 +1,7 @@
+Extract a FlowPilot inventory profile from the following laboratory source
+material. Preserve serial reactor component volumes. Distinguish available,
+unavailable, and out-of-service equipment. Include source wording in notes when
+useful for review.
+
+SOURCE MATERIAL:
+{inventory_source_text}

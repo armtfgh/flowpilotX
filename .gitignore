@@ -1,0 +1,83 @@
+# Local environments, dependency installs and build/cache products
+.venv/
+venv/
+.cache/
+**/.cache/
+**/weights/
+**/weight/
+**/model_weights/
+**/checkpoints/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+node_modules/
+.DS_Store
+
+# Credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+secrets.toml
+*.pem
+*.key
+
+# Keep these research inputs and audit records locally, never in the Git upload.
+/.flowpilotx/
+/data/
+/private/
+/configs/
+/outputs/
+/review/
+/provenance/
+/tmp/
+/khu_inventory.json
+/KHU_inventory*.json
+*.log
+
+# Original FlowPilot SOFTWARE is included; populated private stores are not.
+/baseline/flowpilot/flora_translate/data/
+/baseline/flowpilot/flora_fundamentals/data/
+# Exploratory scratch file contains a credential; real entry points stay included.
+/baseline/flowpilot/main.py
+# Collaborator-specific drivers and private protocol fixtures stay local.
+/baseline/flowpilot/scripts/
+/baseline/flowpilot/flora_translate/tests/fixtures/scientific_giese.json
+/baseline/flowpilot/flora_translate/tests/test_component_identity.py
+
+# Private research notes and delivery scripts contain unpublished study details.
+/docs/private/
+/docs/*.md
+!/docs/ARCHITECTURE.md
+!/docs/CONFIGURATION.md
+!/docs/FEEDBACK.md
+!/docs/NEXT_THREAD.md
+!/docs/PUBLICATION.md
+!/docs/RUNTIME_STATUS.md
+/scripts/*.mjs
+/scripts/package_flowpilotx_astra.py
+/scripts/prepare_github_release.py
+/tests/test_history.py
+/tests/test_campaign_evidence.py
+/tests/test_history_hypotheses.py
+
+# Large generated artifacts (equipment PNG/SVG icons are intentionally included).
+*.pptx
+*.pdf
+*.xlsx
+*.xls
+*.zip
+*.tar
+*.gz
+
+# Private assets used by the restored original figure studio.
+/baseline/flowpilot/deliverables/
+
+# Private generated state from original mining, extraction and figure tools.
+/baseline/flowpilot/extraction_results/
+/baseline/flowpilot/paper_miner_history.json
+/baseline/flowpilot/outputs/

@@ -1,0 +1,8 @@
+# Original interfaces plus local compatibility constraints.
+# Runtime exercised locally; this is not a complete reproducibility lock.
+-c requirements-runtime-constraints.txt
+-r baseline/flowpilot/flowpilot_webapp/backend/requirements.txt
+streamlit
+plotly
+pytest
+# Add and pin BO dependencies only when the prospective feedback method is chosen.

@@ -1,0 +1,87 @@
+[
+  {
+    "name": "single_stage_liquid",
+    "topology": {
+      "topology_id": "stage0_single_liquid",
+      "unit_operations": [
+        {"op_id": "pump_a", "op_type": "pump", "label": "Feed pump", "parameters": {"contents": ["Substrate solution"], "flow_rate_mL_min": 0.1}},
+        {"op_id": "reactor_1", "op_type": "coil_reactor", "label": "10 mL PFA reactor", "parameters": {"material": "PFA", "ID_mm": 1.0, "volume_mL": 10.0, "temperature_C": 40}},
+        {"op_id": "bpr_1", "op_type": "bpr", "label": "3 bar BPR", "parameters": {"pressure_bar": 3.0}},
+        {"op_id": "collector_1", "op_type": "collector", "label": "Product collection", "parameters": {}}
+      ],
+      "streams": [
+        {"stream_id": "s1", "from_op": "pump_a", "to_op": "reactor_1", "stream_type": "liquid"},
+        {"stream_id": "s2", "from_op": "reactor_1", "to_op": "bpr_1", "stream_type": "liquid"},
+        {"stream_id": "s3", "from_op": "bpr_1", "to_op": "collector_1", "stream_type": "liquid"}
+      ],
+      "total_flow_rate_mL_min": 0.1,
+      "residence_time_min": 100.0,
+      "reactor_volume_mL": 10.0,
+      "pid_description": "Feed pump -> reactor -> BPR -> collection"
+    }
+  },
+  {
+    "name": "gas_liquid_photochemistry",
+    "topology": {
+      "topology_id": "stage0_gas_liquid_photo",
+      "unit_operations": [
+        {"op_id": "pump_a", "op_type": "pump", "label": "Liquid feed pump", "parameters": {"contents": ["Substrate solution"], "flow_rate_mL_min": 0.05}},
+        {"op_id": "mfc_o2", "op_type": "mfc", "label": "O2 MFC", "parameters": {"phase": "gas", "contents": ["O2"], "gas_flow_sccm": 1.2}},
+        {"op_id": "mixer_1", "op_type": "mixer", "label": "Gas-liquid mixer", "parameters": {"type": "T-mixer"}},
+        {"op_id": "reactor_1", "op_type": "photoreactor", "label": "10 mL photoreactor", "parameters": {"material": "PFA", "ID_mm": 1.0, "volume_mL": 10.0, "temperature_C": 40, "wavelength_nm": 450}},
+        {"op_id": "bpr_1", "op_type": "bpr", "label": "6 bar BPR", "parameters": {"pressure_bar": 6.0}},
+        {"op_id": "collector_1", "op_type": "collector", "label": "Product collection", "parameters": {}}
+      ],
+      "streams": [
+        {"stream_id": "s1", "from_op": "pump_a", "to_op": "mixer_1", "stream_type": "liquid"},
+        {"stream_id": "s2", "from_op": "mfc_o2", "to_op": "mixer_1", "stream_type": "gas"},
+        {"stream_id": "s3", "from_op": "mixer_1", "to_op": "reactor_1", "stream_type": "gas-liquid"},
+        {"stream_id": "s4", "from_op": "reactor_1", "to_op": "bpr_1", "stream_type": "gas-liquid"},
+        {"stream_id": "s5", "from_op": "bpr_1", "to_op": "collector_1", "stream_type": "liquid"}
+      ],
+      "total_flow_rate_mL_min": 0.05,
+      "residence_time_min": 68.6,
+      "reactor_volume_mL": 10.0,
+      "pid_description": "Liquid pump + O2 MFC -> mixer -> photoreactor -> BPR -> collection"
+    }
+  },
+  {
+    "name": "two_stage_no_degasser",
+    "topology": {
+      "topology_id": "stage0_two_stage_no_degasser",
+      "unit_operations": [
+        {"op_id": "pump_a", "op_type": "pump", "label": "Feed A pump", "parameters": {"contents": ["Feed A"], "flow_rate_mL_min": 0.1}},
+        {"op_id": "stage_1_reactor", "op_type": "photoreactor", "label": "Stage 1: 20 mL reactor", "parameters": {"volume_mL": 20.0, "temperature_C": 25, "wavelength_nm": 450}},
+        {"op_id": "pump_b", "op_type": "pump", "label": "Stage 2 reagent pump", "parameters": {"contents": ["Feed B"], "flow_rate_mL_min": 0.02}},
+        {"op_id": "stage_2_mixer", "op_type": "mixer", "label": "Stage 2 mixer", "parameters": {"type": "T-mixer"}},
+        {"op_id": "stage_2_reactor", "op_type": "coil_reactor", "label": "Stage 2: 10 mL reactor", "parameters": {"volume_mL": 10.0, "temperature_C": 40}},
+        {"op_id": "bpr_1", "op_type": "bpr", "label": "5 bar BPR", "parameters": {"pressure_bar": 5.0}},
+        {"op_id": "collector_1", "op_type": "collector", "label": "Product collection", "parameters": {}}
+      ],
+      "streams": [
+        {"stream_id": "s1", "from_op": "pump_a", "to_op": "stage_1_reactor", "stream_type": "liquid"},
+        {"stream_id": "s2", "from_op": "stage_1_reactor", "to_op": "stage_2_mixer", "stream_type": "liquid"},
+        {"stream_id": "s3", "from_op": "pump_b", "to_op": "stage_2_mixer", "stream_type": "liquid"},
+        {"stream_id": "s4", "from_op": "stage_2_mixer", "to_op": "stage_2_reactor", "stream_type": "liquid"},
+        {"stream_id": "s5", "from_op": "stage_2_reactor", "to_op": "bpr_1", "stream_type": "liquid"},
+        {"stream_id": "s6", "from_op": "bpr_1", "to_op": "collector_1", "stream_type": "liquid"}
+      ],
+      "total_flow_rate_mL_min": 0.12,
+      "residence_time_min": 107.5,
+      "reactor_volume_mL": 30.0,
+      "pid_description": "Feed A -> stage 1 -> stage 2 addition -> stage 2 -> BPR -> collection"
+    }
+  },
+  {
+    "name": "blocked_missing_equipment",
+    "topology": {
+      "topology_id": "blocked",
+      "unit_operations": [],
+      "streams": [],
+      "total_flow_rate_mL_min": 0.0,
+      "residence_time_min": 0.0,
+      "reactor_volume_mL": 0.0,
+      "pid_description": ""
+    }
+  }
+]

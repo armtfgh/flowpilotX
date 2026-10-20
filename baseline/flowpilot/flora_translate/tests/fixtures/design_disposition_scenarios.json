@@ -1,0 +1,375 @@
+{
+  "schema_version": "flowpilot_paired_scenarios_v1.1",
+  "suite_id": "fair_architecture_non_thq_paired_constraints",
+  "inventories": {
+    "thermal_feasible": {
+      "pumps": [
+        {"name": "Syringe pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "PFA", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 80, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [],
+      "reactors": [
+        {"type": "coil", "material": "PFA", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 80},
+        {"type": "coil", "material": "PFA", "volume_mL": 10, "ID_mm": 1.0, "max_temperature_C": 80}
+      ]
+    },
+    "thermal_infeasible_40c": {
+      "pumps": [
+        {"name": "Syringe pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "PFA", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 40, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [],
+      "reactors": [
+        {"type": "coil", "material": "PFA", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 40},
+        {"type": "coil", "material": "PFA", "volume_mL": 10, "ID_mm": 1.0, "max_temperature_C": 40}
+      ]
+    },
+    "photo_420_feasible": {
+      "pumps": [
+        {"name": "Syringe pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "FEP", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 100, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [
+        {"name": "420 nm LED", "wavelength_nm": 420, "power_W": 20, "compatible_reactor": "coil", "intensity_mW_cm2": 100}
+      ],
+      "gas_hardware": [
+        {"name": "Air/O2 mass-flow controller", "gas": "air or oxygen", "min_flow_sccm": 0.1, "max_flow_sccm": 100, "max_pressure_bar": 20},
+        {"name": "Certified gas-liquid T-mixer", "type": "gas-liquid mixer", "max_pressure_bar": 20}
+      ],
+      "reactors": [
+        {"type": "photocoil", "material": "FEP", "volume_mL": 5, "ID_mm": 1.0, "wavelength_nm": 420, "max_temperature_C": 80},
+        {"type": "photocoil", "material": "FEP", "volume_mL": 10, "ID_mm": 1.0, "wavelength_nm": 420, "max_temperature_C": 80}
+      ]
+    },
+    "photo_525_infeasible": {
+      "pumps": [
+        {"name": "Syringe pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "FEP", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 100, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [
+        {"name": "525 nm LED", "wavelength_nm": 525, "power_W": 20, "compatible_reactor": "coil", "intensity_mW_cm2": 100}
+      ],
+      "gas_hardware": [
+        {"name": "Air/O2 mass-flow controller", "gas": "air or oxygen", "min_flow_sccm": 0.1, "max_flow_sccm": 100, "max_pressure_bar": 20},
+        {"name": "Certified gas-liquid T-mixer", "type": "gas-liquid mixer", "max_pressure_bar": 20}
+      ],
+      "reactors": [
+        {"type": "photocoil", "material": "FEP", "volume_mL": 5, "ID_mm": 1.0, "wavelength_nm": 525, "max_temperature_C": 80},
+        {"type": "photocoil", "material": "FEP", "volume_mL": 10, "ID_mm": 1.0, "wavelength_nm": 525, "max_temperature_C": 80}
+      ]
+    },
+    "hydrogen_feasible": {
+      "pumps": [
+        {"name": "HPLC pump", "type": "HPLC", "max_pressure_bar": 50, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "SS", "ID_mm": 1.0, "max_pressure_bar": 50, "max_temperature_C": 150, "transparent": false}
+      ],
+      "BPR_available": [10, 20],
+      "light_sources": [],
+      "gas_hardware": [
+        {"name": "Hydrogen mass-flow controller", "gas": "H2", "min_flow_sccm": 0.1, "max_flow_sccm": 100, "max_pressure_bar": 50, "service_status": "certified_available"},
+        {"name": "Certified gas-liquid mixer", "type": "gas-liquid mixer", "max_pressure_bar": 50, "service_status": "certified_available"}
+      ],
+      "reactors": [
+        {"type": "packed_bed", "material": "SS", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 120, "notes": "Certified for hydrogen service with an H2 mass-flow controller."}
+      ]
+    },
+    "hydrogen_unavailable": {
+      "pumps": [
+        {"name": "HPLC pump", "type": "HPLC", "max_pressure_bar": 50, "max_flow_rate_mL_min": 5.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "SS", "ID_mm": 1.0, "max_pressure_bar": 50, "max_temperature_C": 150, "transparent": false}
+      ],
+      "BPR_available": [10, 20],
+      "light_sources": [],
+      "gas_hardware": [
+        {"name": "Hydrogen mass-flow controller", "gas": "H2", "min_flow_sccm": 0.1, "max_flow_sccm": 100, "max_pressure_bar": 50, "service_status": "prohibited_unavailable"},
+        {"name": "Gas-liquid mixer", "type": "gas-liquid mixer", "max_pressure_bar": 50, "service_status": "prohibited_unavailable"}
+      ],
+      "reactors": [
+        {"type": "packed_bed", "material": "SS", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 120, "notes": "Liquid-only installation; hydrogen and other flammable-gas feeds are prohibited."}
+      ]
+    },
+    "nitration_feasible": {
+      "pumps": [
+        {"name": "Acid pump", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 2.0, "min_flow_rate_mL_min": 0.01},
+        {"name": "Substrate pump", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 2.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "PTFE", "ID_mm": 0.5, "max_pressure_bar": 20, "max_temperature_C": 100, "transparent": false}
+      ],
+      "BPR_available": [5],
+      "light_sources": [],
+      "reactors": [
+        {"type": "microcoil", "material": "PTFE", "volume_mL": 5, "ID_mm": 0.5, "max_temperature_C": 100, "notes": "Approved nitric-acid wetted path; two-feed micromixer and immediate quench available."}
+      ]
+    },
+    "nitration_prohibited": {
+      "pumps": [
+        {"name": "General pump", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 2.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "FEP", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 100, "transparent": true}
+      ],
+      "BPR_available": [5],
+      "light_sources": [],
+      "reactors": [
+        {"type": "coil", "material": "FEP", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 100, "notes": "Not approved for concentrated nitric acid; laboratory safety review prohibits nitration."}
+      ]
+    },
+    "multistep_feasible": {
+      "pumps": [
+        {"name": "Pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 3.0, "min_flow_rate_mL_min": 0.01},
+        {"name": "Pump B", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 3.0, "min_flow_rate_mL_min": 0.01},
+        {"name": "Interstage pump", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 3.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "PFA", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 150, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [],
+      "reactors": [
+        {"type": "two_stage_coil_train", "material": "PFA", "volume_mL": 15, "ID_mm": 1.0, "max_temperature_C": 120, "configuration": "serial", "component_volumes_mL": [5, 10], "notes": "Stage 1 is 5 mL, stage 2 is 10 mL, with an interstage mixer and addition port."}
+      ]
+    },
+    "multistep_infeasible": {
+      "pumps": [
+        {"name": "Pump A", "type": "syringe", "max_pressure_bar": 20, "max_flow_rate_mL_min": 3.0, "min_flow_rate_mL_min": 0.01}
+      ],
+      "tubing": [
+        {"material": "PFA", "ID_mm": 1.0, "max_pressure_bar": 20, "max_temperature_C": 150, "transparent": true}
+      ],
+      "BPR_available": [5, 10],
+      "light_sources": [],
+      "reactors": [
+        {"type": "single_coil", "material": "PFA", "volume_mL": 5, "ID_mm": 1.0, "max_temperature_C": 120, "notes": "No interstage addition port or second reactor is available."}
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "suzuki_feasible",
+      "scenario_id": "suzuki_feasible",
+      "pair_id": "suzuki_inventory_pair",
+      "scenario_kind": "feasible",
+      "title": "Suzuki-Miyaura coupling: feasible 50 C inventory",
+      "protocol": "An aromatic bromide (1.6 mmol, 1.0 equiv), a phenylboronic acid derivative, base, and a palladium catalyst were combined in DMF. The mixture was irradiated in a 50 W microwave reactor at 50 C for 10 min. The biaryl product was obtained in 91% yield.",
+      "objective": "Design a conservative first continuous-flow screen while preserving the validated batch temperature of 50 C.",
+      "hard_constraints": ["Use only the listed inventory.", "Temperature must be exactly 50 C.", "Do not propose hardware below its minimum flow or above its pressure or temperature rating."],
+      "inventory_id": "thermal_feasible",
+      "source_record_id": "op700225u.pdf",
+      "category": "catalytic_thermal",
+      "tags": ["Suzuki-Miyaura", "paired_constraint"],
+      "expected_features": {"phase_regime": "liquid_or_suspension", "topology": ["feed_pumps", "mixer", "heated_reactor", "back_pressure_regulator"], "hazards": ["hot_pressurized_DMF", "possible_salt_precipitation"]},
+      "expected_disposition": "SCREEN",
+      "controlled_change": "Paired inventory permits operation at the mandatory 50 C.",
+      "oracle_constraints": [
+        {"constraint_id": "SUZ-T", "field": "temperature_C", "allowed": [50]},
+        {"constraint_id": "SUZ-Q", "field": "flow_rate_mL_min", "min": 0.01, "max": 5.0, "required": true},
+        {"constraint_id": "SUZ-V", "field": "reactor_volume_mL", "allowed": [5, 10]}
+      ],
+      "oracle_witness": {"reported_disposition": "SCREEN", "proposal": {"temperature_C": 50, "flow_rate_mL_min": 0.5, "reactor_volume_mL": 5}}
+    },
+    {
+      "case_id": "suzuki_infeasible",
+      "scenario_id": "suzuki_infeasible",
+      "pair_id": "suzuki_inventory_pair",
+      "scenario_kind": "infeasible",
+      "title": "Suzuki-Miyaura coupling: 40 C hardware ceiling",
+      "protocol": "An aromatic bromide (1.6 mmol, 1.0 equiv), a phenylboronic acid derivative, base, and a palladium catalyst were combined in DMF. The mixture was irradiated in a 50 W microwave reactor at 50 C for 10 min. The biaryl product was obtained in 91% yield.",
+      "objective": "Design a continuous-flow experiment while preserving the validated batch temperature of 50 C; changing that temperature is not allowed.",
+      "hard_constraints": ["Use only the listed inventory.", "Temperature must be exactly 50 C.", "All available tubing and reactors have a certified maximum temperature of 40 C.", "Do not propose unlisted hardware or relax the temperature requirement."],
+      "inventory_id": "thermal_infeasible_40c",
+      "source_record_id": "op700225u.pdf",
+      "category": "catalytic_thermal",
+      "tags": ["Suzuki-Miyaura", "paired_constraint"],
+      "expected_features": {"phase_regime": "liquid_or_suspension", "topology": ["feed_pumps", "mixer", "heated_reactor", "back_pressure_regulator"], "hazards": ["hot_pressurized_DMF", "possible_salt_precipitation"]},
+      "expected_disposition": "BLOCK",
+      "controlled_change": "Reactor and tubing maximum temperature changed from 80 C to 40 C.",
+      "oracle_constraints": [{"constraint_id": "SUZ-I-T", "field": "temperature_C", "allowed": [50], "max": 40}],
+      "oracle_witness": {"reported_disposition": "BLOCK", "proposal": {}}
+    },
+    {
+      "case_id": "photo_oxidation_feasible",
+      "scenario_id": "photo_oxidation_feasible",
+      "pair_id": "photo_wavelength_pair",
+      "scenario_kind": "feasible",
+      "title": "Photocatalytic aerobic oxidation: matched 420 nm source",
+      "protocol": "Fmoc-L-methionine (3.7 mmol, 1.0 equiv) and 4,7-diphenyl-2,1,3-benzothiadiazole (10 mol%) were dissolved in acetonitrile at 0.10 M. The solution was exposed to air and irradiated with a 1.5 W LED centered near 420 nm at 21 C for 5 min. Fmoc-methionine sulfoxide was formed in 99% yield.",
+      "objective": "Design a conservative first gas-liquid photochemical flow screen using the validated 420 nm excitation window.",
+      "hard_constraints": ["Use only the listed inventory.", "The light source must be between 410 and 430 nm.", "Liquid flow must be at least 0.01 mL/min.", "Report inlet/STP and pressure-corrected in-channel gas flow separately."],
+      "inventory_id": "photo_420_feasible",
+      "source_record_id": "acs.joc.1c01151.pdf",
+      "category": "photochemical_gas_liquid",
+      "tags": ["photochemistry", "gas-liquid", "paired_constraint"],
+      "expected_features": {"phase_regime": "gas_liquid", "topology": ["liquid_pump", "oxygen_mass_flow_controller", "gas_liquid_mixer", "photoreactor", "back_pressure_regulator"], "hazards": ["oxygen_organic_solvent", "pressurized_gas_liquid"]},
+      "expected_disposition": "SCREEN",
+      "controlled_change": "Inventory contains a source inside the mandatory 410-430 nm excitation window.",
+      "oracle_constraints": [
+        {"constraint_id": "PHOTO-WL", "field": "wavelength_nm", "min": 410, "max": 430, "required": true},
+        {"constraint_id": "PHOTO-Q", "field": "flow_rate_mL_min", "min": 0.01, "max": 5.0, "required": true},
+        {"constraint_id": "PHOTO-V", "field": "reactor_volume_mL", "allowed": [5, 10]}
+      ],
+      "oracle_witness": {"reported_disposition": "SCREEN", "proposal": {"wavelength_nm": 420, "flow_rate_mL_min": 0.5, "reactor_volume_mL": 5}}
+    },
+    {
+      "case_id": "photo_oxidation_infeasible",
+      "scenario_id": "photo_oxidation_infeasible",
+      "pair_id": "photo_wavelength_pair",
+      "scenario_kind": "infeasible",
+      "title": "Photocatalytic aerobic oxidation: wavelength mismatch",
+      "protocol": "Fmoc-L-methionine (3.7 mmol, 1.0 equiv) and 4,7-diphenyl-2,1,3-benzothiadiazole (10 mol%) were dissolved in acetonitrile at 0.10 M. The solution was exposed to air and irradiated with a 1.5 W LED centered near 420 nm at 21 C for 5 min. Fmoc-methionine sulfoxide was formed in 99% yield.",
+      "objective": "Design a flow experiment using the validated 410-430 nm excitation window; wavelength substitution is not permitted.",
+      "hard_constraints": ["Use only the listed inventory.", "The light source must be between 410 and 430 nm.", "The only available source is 525 nm.", "Do not propose an unlisted lamp or relax the excitation requirement."],
+      "inventory_id": "photo_525_infeasible",
+      "source_record_id": "acs.joc.1c01151.pdf",
+      "category": "photochemical_gas_liquid",
+      "tags": ["photochemistry", "gas-liquid", "paired_constraint"],
+      "expected_features": {"phase_regime": "gas_liquid", "topology": ["liquid_pump", "oxygen_mass_flow_controller", "gas_liquid_mixer", "photoreactor", "back_pressure_regulator"], "hazards": ["oxygen_organic_solvent", "pressurized_gas_liquid"]},
+      "expected_disposition": "BLOCK",
+      "controlled_change": "Available light source changed from 420 nm to 525 nm.",
+      "oracle_constraints": [{"constraint_id": "PHOTO-I-WL", "field": "wavelength_nm", "min": 410, "max": 430, "allowed": [525]}],
+      "oracle_witness": {"reported_disposition": "BLOCK", "proposal": {}}
+    },
+    {
+      "case_id": "hydrogenolysis_feasible",
+      "scenario_id": "hydrogenolysis_feasible",
+      "pair_id": "hydrogen_availability_pair",
+      "scenario_kind": "feasible",
+      "title": "Packed-bed hydrogenolysis: certified hydrogen service",
+      "protocol": "N-Diphenylmethylazetidin-3-ol was dissolved in methanol and contacted with hydrogen over Pd(OH)2/Al2O3 at 60 C in a batch hydrogenation reactor for 5 h. Acetic acid may be used to enhance the reaction rate. The 3-azetidinol product was obtained in 38.1% yield.",
+      "objective": "Design a conservative first packed-bed hydrogenolysis screen at 60 C.",
+      "hard_constraints": ["Use only the listed inventory.", "Hydrogen is the required reducing reagent.", "Operate between 10 and 20 bar using certified hydrogen hardware.", "Liquid flow must be at least 0.01 mL/min."],
+      "inventory_id": "hydrogen_feasible",
+      "source_record_id": "acs.oprd.9b00416.pdf",
+      "category": "hydrogenation_packed_bed",
+      "tags": ["hydrogen", "packed_bed", "paired_constraint"],
+      "expected_features": {"phase_regime": "gas_liquid_solid", "topology": ["liquid_pump", "hydrogen_mass_flow_controller", "gas_liquid_mixer", "packed_bed", "back_pressure_regulator"], "hazards": ["hydrogen", "flammable_methanol", "high_pressure", "catalyst_bed"]},
+      "expected_disposition": "SCREEN",
+      "controlled_change": "Certified hydrogen feed and pressure-rated packed bed are available.",
+      "oracle_constraints": [
+        {"constraint_id": "H2-T", "field": "temperature_C", "allowed": [60]},
+        {"constraint_id": "H2-P", "field": "BPR_bar", "min": 10, "max": 20, "required": true},
+        {"constraint_id": "H2-Q", "field": "flow_rate_mL_min", "min": 0.01, "max": 5.0, "required": true},
+        {"constraint_id": "H2-V", "field": "reactor_volume_mL", "allowed": [5]}
+      ],
+      "oracle_witness": {"reported_disposition": "SCREEN", "proposal": {"temperature_C": 60, "BPR_bar": 10, "flow_rate_mL_min": 0.5, "reactor_volume_mL": 5}}
+    },
+    {
+      "case_id": "hydrogenolysis_infeasible",
+      "scenario_id": "hydrogenolysis_infeasible",
+      "pair_id": "hydrogen_availability_pair",
+      "scenario_kind": "infeasible",
+      "title": "Packed-bed hydrogenolysis: hydrogen prohibited",
+      "protocol": "N-Diphenylmethylazetidin-3-ol was dissolved in methanol and contacted with hydrogen over Pd(OH)2/Al2O3 at 60 C in a batch hydrogenation reactor for 5 h. Acetic acid may be used to enhance the reaction rate. The 3-azetidinol product was obtained in 38.1% yield.",
+      "objective": "Design the same hydrogenolysis chemistry without changing the reducing reagent.",
+      "hard_constraints": ["Use only the listed inventory.", "Hydrogen is required and cannot be substituted.", "The installation prohibits hydrogen and all flammable-gas feeds.", "Do not propose external or unlisted gas hardware."],
+      "inventory_id": "hydrogen_unavailable",
+      "source_record_id": "acs.oprd.9b00416.pdf",
+      "category": "hydrogenation_packed_bed",
+      "tags": ["hydrogen", "packed_bed", "paired_constraint"],
+      "expected_features": {"phase_regime": "gas_liquid_solid", "topology": ["liquid_pump", "hydrogen_mass_flow_controller", "gas_liquid_mixer", "packed_bed", "back_pressure_regulator"], "hazards": ["hydrogen", "flammable_methanol", "high_pressure", "catalyst_bed"]},
+      "expected_disposition": "BLOCK",
+      "controlled_change": "Hydrogen service changed from certified available to explicitly prohibited.",
+      "oracle_constraints": [{"constraint_id": "H2-I", "field": "BPR_bar", "min": 10, "max": 20}],
+      "oracle_witness": {"reported_disposition": "BLOCK", "proposal": {}}
+    },
+    {
+      "case_id": "dinitration_feasible",
+      "scenario_id": "dinitration_feasible",
+      "pair_id": "nitration_safety_pair",
+      "scenario_kind": "feasible",
+      "title": "Dinitration: approved acid-compatible microflow path",
+      "protocol": "An aniline derivative was treated with nitric acid in the industrial batch solvent at 60 C for 4 h. Nitric acid served as nitrating reagent and acid catalyst. The dinitrated product was obtained in 89% yield.",
+      "objective": "Design a conservative microflow nitration screen with segregated feeds, controlled mixing, and immediate quench.",
+      "hard_constraints": ["Use only the listed inventory.", "Use two segregated feeds before the micromixer.", "Use the approved PTFE 5 mL microcoil.", "Operate at 60 C and include immediate quench."],
+      "inventory_id": "nitration_feasible",
+      "source_record_id": "c2gc36652e.pdf",
+      "category": "hazardous_fast_exotherm",
+      "tags": ["nitration", "exothermic", "paired_constraint"],
+      "expected_features": {"phase_regime": "liquid_liquid", "topology": ["separate_feed_pumps", "micromixer", "temperature_controlled_microreactor", "immediate_quench"], "hazards": ["nitric_acid", "strong_exotherm", "energetic_product", "corrosion"]},
+      "expected_disposition": "SCREEN",
+      "controlled_change": "Approved acid-compatible two-feed microflow and quench hardware are available.",
+      "oracle_constraints": [
+        {"constraint_id": "NIT-T", "field": "temperature_C", "allowed": [60]},
+        {"constraint_id": "NIT-V", "field": "reactor_volume_mL", "allowed": [5]},
+        {"constraint_id": "NIT-ID", "field": "tubing_ID_mm", "allowed": [0.5]}
+      ],
+      "oracle_witness": {"reported_disposition": "SCREEN", "proposal": {"temperature_C": 60, "reactor_volume_mL": 5, "tubing_ID_mm": 0.5}}
+    },
+    {
+      "case_id": "dinitration_infeasible",
+      "scenario_id": "dinitration_infeasible",
+      "pair_id": "nitration_safety_pair",
+      "scenario_kind": "infeasible",
+      "title": "Dinitration: laboratory prohibition",
+      "protocol": "An aniline derivative was treated with nitric acid in the industrial batch solvent at 60 C for 4 h. Nitric acid served as nitrating reagent and acid catalyst. The dinitrated product was obtained in 89% yield.",
+      "objective": "Translate the nitric-acid dinitration without changing the nitrating chemistry.",
+      "hard_constraints": ["Use only the listed inventory.", "The laboratory safety review prohibits nitration and concentrated nitric acid in all available flow hardware.", "The chemistry and nitrating reagent cannot be substituted.", "Do not propose unlisted equipment."],
+      "inventory_id": "nitration_prohibited",
+      "source_record_id": "c2gc36652e.pdf",
+      "category": "hazardous_fast_exotherm",
+      "tags": ["nitration", "exothermic", "paired_constraint"],
+      "expected_features": {"phase_regime": "liquid_liquid", "topology": ["separate_feed_pumps", "micromixer", "temperature_controlled_microreactor", "immediate_quench"], "hazards": ["nitric_acid", "strong_exotherm", "energetic_product", "corrosion"]},
+      "expected_disposition": "BLOCK",
+      "controlled_change": "Lab safety authorization and acid-compatible wetted path changed from available to prohibited.",
+      "oracle_constraints": [{"constraint_id": "NIT-I", "field": "temperature_C", "allowed": [60]}],
+      "oracle_witness": {"reported_disposition": "BLOCK", "proposal": {}}
+    },
+    {
+      "case_id": "multistep_feasible",
+      "scenario_id": "multistep_feasible",
+      "pair_id": "multistep_hardware_pair",
+      "scenario_kind": "feasible",
+      "title": "Two-step oxidative amidation: interstage hardware available",
+      "protocol": "Benzyl alcohol and morpholine were used in a 1:1 ratio in dioxane at 0.667 M. TBHP was the oxidant, with NaBr and sulfuric acid promoting oxidation and amidation. The two-step batch sequence was operated at 80 C for a total of 30 min and afforded benzoyl morpholine in 76% yield.",
+      "objective": "Design a two-stage flow screen with oxidation followed by interstage morpholine addition and amidation.",
+      "hard_constraints": ["Use only the listed inventory.", "Keep TBHP and morpholine segregated until the interstage addition point.", "Use the listed 15 mL two-stage serial reactor train and the interstage pump.", "Operate at 80 C."],
+      "inventory_id": "multistep_feasible",
+      "source_record_id": "C5RA20838F.pdf",
+      "category": "multistep_oxidation",
+      "tags": ["multistep", "TBHP", "paired_constraint"],
+      "expected_features": {"phase_regime": "multistream_liquid", "topology": ["separate_feed_pumps", "stage_1_oxidation", "interstage_addition", "stage_2_amidation", "quench"], "hazards": ["TBHP", "sulfuric_acid", "exotherm", "incompatible_feed_contact"]},
+      "expected_disposition": "SCREEN",
+      "controlled_change": "Second reactor, interstage mixer, and third pump are available.",
+      "oracle_constraints": [
+        {"constraint_id": "MULTI-T", "field": "temperature_C", "allowed": [80]},
+        {"constraint_id": "MULTI-V", "field": "reactor_volume_mL", "allowed": [15]}
+      ],
+      "oracle_witness": {"reported_disposition": "SCREEN", "proposal": {"temperature_C": 80, "reactor_volume_mL": 15}}
+    },
+    {
+      "case_id": "multistep_infeasible",
+      "scenario_id": "multistep_infeasible",
+      "pair_id": "multistep_hardware_pair",
+      "scenario_kind": "infeasible",
+      "title": "Two-step oxidative amidation: no interstage hardware",
+      "protocol": "Benzyl alcohol and morpholine were used in a 1:1 ratio in dioxane at 0.667 M. TBHP was the oxidant, with NaBr and sulfuric acid promoting oxidation and amidation. The two-step batch sequence was operated at 80 C for a total of 30 min and afforded benzoyl morpholine in 76% yield.",
+      "objective": "Design the required segregated two-stage process without telescoping the incompatible feeds.",
+      "hard_constraints": ["Use only the listed inventory.", "TBHP and morpholine must remain segregated until an interstage addition point.", "No interstage pump, mixer, addition port, or second reactor is available.", "Do not telescope the stages or propose unlisted equipment."],
+      "inventory_id": "multistep_infeasible",
+      "source_record_id": "C5RA20838F.pdf",
+      "category": "multistep_oxidation",
+      "tags": ["multistep", "TBHP", "paired_constraint"],
+      "expected_features": {"phase_regime": "multistream_liquid", "topology": ["separate_feed_pumps", "stage_1_oxidation", "interstage_addition", "stage_2_amidation", "quench"], "hazards": ["TBHP", "sulfuric_acid", "exotherm", "incompatible_feed_contact"]},
+      "expected_disposition": "BLOCK",
+      "controlled_change": "Second reactor, interstage mixer, and third pump removed.",
+      "oracle_constraints": [{"constraint_id": "MULTI-I", "field": "reactor_volume_mL", "allowed": [15]}],
+      "oracle_witness": {"reported_disposition": "BLOCK", "proposal": {}}
+    }
+  ]
+}

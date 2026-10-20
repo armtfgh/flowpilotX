@@ -1,0 +1,2437 @@
+{
+  "schema_version": "flowpilotx-full-source-release-v2",
+  "created_utc": "2026-10-20T01:50:09.236912+00:00",
+  "release_mode": "full_software_private_study_inputs_excluded",
+  "source_of_truth": "Git index; manifest excludes itself",
+  "private_data_included": false,
+  "components": {
+    "literature retrieval": [
+      "baseline/flowpilot/flora_translate/retriever.py",
+      "baseline/flowpilot/flora_translate/analogy_selector.py",
+      "baseline/flowpilot/flora_translate/embedding_engine.py",
+      "baseline/flowpilot/flora_translate/vector_store.py"
+    ],
+    "supplemental literature and figure tools": [
+      "baseline/flowpilot/flora_scout/__init__.py",
+      "baseline/flowpilot/flora_scout/scout.py",
+      "baseline/flowpilot/flora_prism/__init__.py",
+      "baseline/flowpilot/flora_prism/prism.py",
+      "baseline/flowpilot/paper_knowledge_extractor.py",
+      "baseline/flowpilot/visualization/benchmark_figure_studio.py"
+    ],
+    "FlowPilot translation and councils": [
+      "baseline/flowpilot/flora_translate/main.py",
+      "baseline/flowpilot/flora_translate/schemas.py",
+      "baseline/flowpilot/flora_translate/engine/llm_agents.py",
+      "baseline/flowpilot/flora_translate/engine/council_v3/chief.py",
+      "baseline/flowpilot/flora_translate/engine/council_v4/chief.py",
+      "baseline/flowpilot/flora_translate/engine/council_v4/scientific.py"
+    ],
+    "engineering and topology": [
+      "baseline/flowpilot/flora_translate/final_engineering.py",
+      "baseline/flowpilot/flora_translate/design_calculator.py",
+      "baseline/flowpilot/flora_translate/gas_settings.py",
+      "baseline/flowpilot/flora_translate/inventory_allocator.py",
+      "baseline/flowpilot/flora_translate/topology_compiler.py",
+      "baseline/flowpilot/flora_design/visualizer/flowsheet_builder.py",
+      "baseline/flowpilot/flora_design/visualizer/icons/bpr.png",
+      "baseline/flowpilot/flora_design/visualizer/icons/check_valve.png",
+      "baseline/flowpilot/flora_design/visualizer/icons/mfc.png",
+      "baseline/flowpilot/flora_design/visualizer/icons/coil_reactor.png",
+      "baseline/flowpilot/flora_design/visualizer/icons/pump_generic.svg",
+      "baseline/flowpilot/flora_design/rules/unit_op_rules.py"
+    ],
+    "fundamentals and optimization": [
+      "baseline/flowpilot/flora_fundamentals/handbook_reader.py",
+      "baseline/flowpilot/flora_fundamentals/knowledge_store.py",
+      "baseline/flowpilot/flora_optimize/bo_engine.py"
+    ],
+    "original interfaces": [
+      "baseline/flowpilot/app.py",
+      "baseline/flowpilot/pages/translate.py",
+      "baseline/flowpilot/flowpilot_webapp/backend/app.py",
+      "baseline/flowpilot/flowpilot_webapp/frontend/src/main.tsx",
+      "baseline/flowpilot/flowpilot_webapp/frontend/package.json"
+    ],
+    "FlowPilotX campaign and interface": [
+      "src/flowpilotx/campaign.py",
+      "src/flowpilotx/evidence.py",
+      "src/flowpilotx/inventory.py",
+      "src/flowpilotx/selection.py",
+      "src/flowpilotx/gateway.py",
+      "src/flowpilotx/server.py",
+      "src/flowpilotx/gui/index.html",
+      "src/flowpilotx/gui/app.js"
+    ],
+    "KHU study adapter": [
+      "src/khu_sulfoxidation/history.py",
+      "src/khu_sulfoxidation/history_hypotheses.py",
+      "src/khu_sulfoxidation/corrected_design.py",
+      "src/khu_sulfoxidation/flowpilotx_profile.py",
+      "src/khu_sulfoxidation/flowpilotx_report.py",
+      "src/khu_sulfoxidation/flowpilotx_astra.py",
+      "src/khu_sulfoxidation/feedback.py"
+    ]
+  },
+  "license": "No new redistribution grant; see LICENSE_STATUS.md",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 240,
+      "sha256": "c2ae341ed1f3f5e3d6e25e6cd9ce466c9e898e39a6252e242cc23a26288ae3dc",
+      "mode": "100644"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 156,
+      "sha256": "829d0186b2b0a2eed090f1b5fcfc8fd4349714287eac68ed3e3219d8dd6d8612",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "bytes": 705,
+      "sha256": "0da8516db6eb62f25d163ae378087c199f4abdb638b9a037abbb8dde765a9e21",
+      "mode": "100644"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 1922,
+      "sha256": "778fb15d500edd70fdf3a215c6bdd43fe6c14dedd333eaccac5009a0e498e892",
+      "mode": "100644"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 2926,
+      "sha256": "a4823d98d5f84bd07b38275e44dfd82763f838c48b20414fba5219fce6e3e450",
+      "mode": "100644"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 1047,
+      "sha256": "fd9530732b88b2dd6e9a4c0fe1d215762bacc4f493844b2fc28fb54d68aca58b",
+      "mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9461,
+      "sha256": "12d898da0245deec8d7247fa6f5cd164da5ed3835e3ca6e6e3e5c78b1fb060a9",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/app.py",
+      "bytes": 1257,
+      "sha256": "8d929966881ad608c014f35384107ff8a8510cd68ae2533214090cbf70286c26",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/__init__.py",
+      "bytes": 48,
+      "sha256": "5409ae3fd41268449923d2d76d3182c29dfdb61e3eb90079dca45db79325e660",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/council_conversation.py",
+      "bytes": 6350,
+      "sha256": "b1505b4b7be4fcc6af8983eecfdbd6073ae9d60facbbe5653fcd76fc8561ed4a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/council_report.py",
+      "bytes": 2063,
+      "sha256": "001efc6cbd4107824c2bc4a82355f9507c8339092cf2130164364f3bf2a862fc",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/design_disposition.py",
+      "bytes": 1642,
+      "sha256": "8bccf292c7d384b58db0177d22e985521a124eac98f47241c6c5e8fe8dd272c6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/design_space_viz.py",
+      "bytes": 11610,
+      "sha256": "fc48b4de055e40690113acb068fc2320279ad3e7c66d938898cac1532cbfe834",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/design_steps.py",
+      "bytes": 10150,
+      "sha256": "4fdb991915ca3292ffe7799079b821c15e00062ce09f1d3ef92c3ff9afdeb421",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/error_card.py",
+      "bytes": 1941,
+      "sha256": "f6496649ed25a9cb6c6029c22aeb3d6ea20239b63967ba96404e8cd3699721c8",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/feedback.py",
+      "bytes": 3144,
+      "sha256": "ba93d4c719e5282c65411e3a631e123f0ef1d6b16fb7947ed748b11eda1f9334",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/intake_wizard.py",
+      "bytes": 10747,
+      "sha256": "91dcc280b11e7a61397acae7024b8fcd5843cc4c32825c6ee4bb26d1a31c16a3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/inventory_result.py",
+      "bytes": 4771,
+      "sha256": "9f1c6e14aad3ed8236fe16718a1ee9c540bc9a1f4fe636d615c0ac40de44b9d8",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/inventory_selector.py",
+      "bytes": 6124,
+      "sha256": "0fcaf3bd3ededcb3cfb16003a73944a738dd87ad9e62393073bdbf490f52688f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/model_route_selector.py",
+      "bytes": 2201,
+      "sha256": "cc2d4654d3ae49637aa4e040798b4c6bdfd0396939cc08b23a2488d56cdb1d7e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/process_diagram.py",
+      "bytes": 7400,
+      "sha256": "f0ac81ac028975e2cec0157b2f234acb3344a6fd3eea13359f477b033902a1c9",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/result_reporting.py",
+      "bytes": 4088,
+      "sha256": "26b65676811fefcffa2015b2711d1ba538e41cec78e335c869bb329f285726ea",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/components/sidebar.py",
+      "bytes": 2825,
+      "sha256": "8345a421b3016035b1b8a0cec0111bac365a2fd8e1015e08daafc16b0aa88aa3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/__init__.py",
+      "bytes": 457,
+      "sha256": "633c3dd8ad05073cb0705ac65f884bfbe17eee7b4f9198259153f61c0bc2842b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/chemistry_classifier.py",
+      "bytes": 2826,
+      "sha256": "94345ff7c9521652a7800d127d760dd492b1bd675c52ebe86d1a8d5a35f9a956",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/main.py",
+      "bytes": 8806,
+      "sha256": "ffa4fb9e16cb38e14d0cc61bbcf6dc13e456aed98924acc1e0e82c2f5461d38b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/parameter_agent.py",
+      "bytes": 4705,
+      "sha256": "7626199d139a6e95024a8f741a74bdf7a2ff15e52e5cabca93a5cde4b16823d4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/prompts/classify_system.txt",
+      "bytes": 1238,
+      "sha256": "3061cc07701be2887766e82d0468b5847984f283eca6fdc1307aa339aec9777c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/prompts/classify_user.txt",
+      "bytes": 619,
+      "sha256": "cb5134f3e9f147020e626823b1f9eb8bafc25f8f529c62571008e1503fdc6a8a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/prompts/topology_system.txt",
+      "bytes": 968,
+      "sha256": "5784d16b26590b5c317573442967d859aa4bb4429444919ba3e25bd477dbe60f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/prompts/topology_user.txt",
+      "bytes": 783,
+      "sha256": "c8e8599bf02b3585955b9e096bd67e49a79f0c24d147311f7d4e420edef5371b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/rules/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/rules/material_compatibility.py",
+      "bytes": 904,
+      "sha256": "117f4bf497b2745902e4fd828f17d3d841304b9c01aa3e1838495e544eb81496",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/rules/photocatalyst_db.py",
+      "bytes": 1600,
+      "sha256": "11c5f18b6736882c9720e45dcff630eb6e2977e442e385c44127ada22e013d41",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/rules/unit_op_rules.py",
+      "bytes": 9683,
+      "sha256": "247dc8b56692a0360301ec334d2037cf7535c32b21b5e8c854fb7cdf105ac27c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/topology_agent.py",
+      "bytes": 7137,
+      "sha256": "1903adeb2cbcb367f36947f60a7e789fbb65c864130add4837dbaeaeb2978219",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/unit_op_selector.py",
+      "bytes": 5662,
+      "sha256": "276fe57c910585ca4cf1cf02ee66f0b87f55591fc2d0a7af350d5c21f65ab5f3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/__init__.py",
+      "bytes": 65,
+      "sha256": "d7fce190ae45d6cfd4a91aafb2c7882782fee8e3fd971d35f2ca7d4c98508ece",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/flowsheet_builder.py",
+      "bytes": 43871,
+      "sha256": "30e64dfef3c5fc05003c11ce16970095a160a2c4c70a623d8a1eb7e66fc11c41",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/flowsheet_builder_legacy.py",
+      "bytes": 25637,
+      "sha256": "c5d5f27d6457874aa0f0706dd5893dc0b07f6a2c7a693af37620c1e9c5643d9f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/README_check_valve.md",
+      "bytes": 703,
+      "sha256": "fd8bafbfd60a91d8007a0586ee1a18c7b2ce38f54a9978f4310bb73dcaa3cab6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/_pump_generic.png",
+      "bytes": 20303,
+      "sha256": "ec514ef66c95ba95161365d5ca30fa8609c530a99864bf8d98d4c59c67736725",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/_pump_trimmed.png",
+      "bytes": 374336,
+      "sha256": "a76fdd85244f049e2b530aad52cdef611049f99d0c95b7280915dcbffe09d53e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/bpr.png",
+      "bytes": 573072,
+      "sha256": "4e9a2d91ee3859124633bf7c9e08fbe5c152aa2daa42d97a99363754ca0115a5",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/check_valve.png",
+      "bytes": 1412738,
+      "sha256": "2a892439af89cca91d90a8c1004d49d5d6923e3477ba0cf67fe148d3e6ba4e58",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/coil_reactor.png",
+      "bytes": 715385,
+      "sha256": "b54fe491bbbcff4a3196ff2687e91d940b5e8fd23c1d4ee965cfb7d1ad8e9e77",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/degasser.png",
+      "bytes": 598350,
+      "sha256": "4f5155cf2865fd5e508952ea322cfbbb616e74563094757a2e0e98e4a850cbc7",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/g_l_sep.png",
+      "bytes": 609096,
+      "sha256": "9a7a9243a3101e9c60f90776a49786ca4e849af0b690b59851cf16381573b3cc",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/l_l_sep.png",
+      "bytes": 474217,
+      "sha256": "6b5f50abe0fdb792d380c9be5dbf4897ec8926a46a2de4356a679b6b33abbf4d",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/mfc.png",
+      "bytes": 33168,
+      "sha256": "7c35e78829d7eb56e6937471d042ac47848e96167d1c88005232fbc47af4384b",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/microchannel.png",
+      "bytes": 739745,
+      "sha256": "ba04ce5f6a83fd7e7f949e73e250d2ab22529785cf86042f17eb0534bb6d1adc",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/mixer2.png",
+      "bytes": 387941,
+      "sha256": "a45ae08c3fe053c2781931f7b67ae54ebfd6733ba1193510a26ab168891c3239",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/mixer3.png",
+      "bytes": 573228,
+      "sha256": "99d52f015c3c2bd86504715d0b28403beda1c3b0f666d57812c6b771d965755c",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/photoreactor.png",
+      "bytes": 683832,
+      "sha256": "e451b39c204138d6787b65c4f0c2206d3e23d285236854cb2ac2016cfb1f34d8",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/pump_generic.svg",
+      "bytes": 539,
+      "sha256": "ec6dc997e7f13936b1cfb7a47dae043ecba1adcb043b7a05cd191ab026bea7fc",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/sparge.png",
+      "bytes": 600197,
+      "sha256": "fe5bb66cd178e61ddd7ed73ad3da6f4ab8b527cf42b3ec43f375b350f90a330a",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/syringe_pump.png",
+      "bytes": 583625,
+      "sha256": "ac591a5777b56a776893924a1e3b984dc7b3527fa1d906600ed6f0a34a3d7a6e",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/icons/vial.png",
+      "bytes": 417641,
+      "sha256": "3ab0074b8db228df35455346ff0f02262ed0b9d216010ba0d5a951c311405779",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/plot_builder.py",
+      "bytes": 3562,
+      "sha256": "fc8387d8611a301fb1f4decc7b6e23d13c3a0473d102861cebe92010a495ddb2",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_design/visualizer/streamlit_diagram.py",
+      "bytes": 1053,
+      "sha256": "ad4016b453d2d2bd96d573b57570f152985505c3364a8fd13aabfb1975e3c8f6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_fundamentals/__init__.py",
+      "bytes": 365,
+      "sha256": "e66d356adfd460d0597971652f1f3692422cf8dbde1b6ac16f717263dec6d131",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_fundamentals/handbook_reader.py",
+      "bytes": 16574,
+      "sha256": "d6fec4fb633d9f0c9ddda374e9781a26ecaae1ad2eb0ff227ddc5661a82ef907",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_fundamentals/knowledge_store.py",
+      "bytes": 5592,
+      "sha256": "003f44360c161387abef43d18d95ebd9297686f2cbec21ab9ba770112215a6f1",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_fundamentals/schemas.py",
+      "bytes": 1642,
+      "sha256": "268028646ca1f277ae21b6d7a8cd368fb08237445db72c4f01f55e548527512c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_optimize/__init__.py",
+      "bytes": 55,
+      "sha256": "ef0e8e9ab31a44fc0cfca4669375d01030a3d99de0cf04d3e1587912d73eae2b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_optimize/bo_engine.py",
+      "bytes": 5122,
+      "sha256": "1775116a52fcf96fe47d375e07424c072010c12f1dd92b25906a72f6d383bfbd",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_prism/__init__.py",
+      "bytes": 54,
+      "sha256": "ec8c17c4500831e62ab7150797009e198937257801829da90fc6e9ea4dfc4046",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_prism/prism.py",
+      "bytes": 2900,
+      "sha256": "6642b35d22dbdfd4865efa2a0b383454f130c9811dbc467dc5e80864787aceb1",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_scout/__init__.py",
+      "bytes": 48,
+      "sha256": "5f5e05a9d0187248af708161ede7f426cef1c120d989bccf50cc8ed7795f39a3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_scout/scout.py",
+      "bytes": 22119,
+      "sha256": "771964e904e151b39716b2b63ec82e591130390ef71648d27f624ba9558bd615",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/__init__.py",
+      "bytes": 1456,
+      "sha256": "4a16bf090d691dbc57cffe151804a5df241dc0b6c39aa046d659bd4eafa1a88e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/analogy_selector.py",
+      "bytes": 2111,
+      "sha256": "02fb808402ce3b9ceb3abf93b043ee025f9df267ed9f4de1b3a4b532030b0779",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/batch_normalization.py",
+      "bytes": 16407,
+      "sha256": "78b49fffdd3d071fd6595a26fcf7afb2cea45cc01c71be1dfffa7ff028bd71bd",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/chemistry_agent.py",
+      "bytes": 23801,
+      "sha256": "7aca693736426e04848309cabbf4ecdc7474dc6fdcaf2d8587ac533569fa6c39",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/chemistry_contract.py",
+      "bytes": 43769,
+      "sha256": "5b5d54740146a00932970e58da031d8d80c290c9ed2fd07a6b7923d24010fd5f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/component_identity.py",
+      "bytes": 7528,
+      "sha256": "09dc607453d9e23fef4afffe2567d9bd1c21775ac6031c6fb1cf736c7e9bea25",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/config.py",
+      "bytes": 11162,
+      "sha256": "a12e4892e83fccc96ac88de8cc029121edbee81f136627952b9da9f365333976",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/conversation_agent.py",
+      "bytes": 18216,
+      "sha256": "513efd0de1e1bb60652f322a68a3298ac56ba31b6c461bd91678b9d6557cdb9e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/design_calculator.py",
+      "bytes": 141871,
+      "sha256": "de1d689d783fa4174d7e5aab2834d97d134db1cbfab9a855a24f68bbeed0d568",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/design_disposition.py",
+      "bytes": 35306,
+      "sha256": "f4541626081e132025a59dbd2181b591d8d41b5a6c3b92332daf4acd2c421ecf",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/design_evidence.py",
+      "bytes": 8042,
+      "sha256": "89c21a5f84a131437759c90c9287f79b9586d0ec0acbcd8f37a5a854f111cf3f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/design_realizer.py",
+      "bytes": 101481,
+      "sha256": "8811624bf8a8fd27175dfdd8d4664a854e736d3d18df83033f6a5b0584bf919c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/diagram_artifacts.py",
+      "bytes": 9872,
+      "sha256": "a7c702c2736e7b718ee70e41c2a6f1843d9b152c38ade8f56179840ae17e1923",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/diagram_views.py",
+      "bytes": 2681,
+      "sha256": "d43321b7498b2434852db0f11acbbcf69cc9ad76774c071efbd4e22a3cccdb73",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/embedding_engine.py",
+      "bytes": 3811,
+      "sha256": "8156e7345043190da01cd4f45b129a32a31f8bfc4851f4494b0347e4184c71c4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/__init__.py",
+      "bytes": 1543,
+      "sha256": "6cb56b30d6854a6848d2a940a239d6d04d0d2106a25ef3a4af28efc0f9f6b85d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v3/__init__.py",
+      "bytes": 599,
+      "sha256": "9d8c7c1b01a2b8b11644520dd28838f958e2d1f75999e87ce1d9c0a1bc2bb171",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v3/chief.py",
+      "bytes": 38417,
+      "sha256": "f375bf8e599e34a853980217d82ede512b6448d72062f9b50cf2e56838b577e4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v3/designer.py",
+      "bytes": 12694,
+      "sha256": "bd5f07e5ef9189b522194e00fb62732a22f3036690ef525a402fda91886943b5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v3/expert.py",
+      "bytes": 21998,
+      "sha256": "a7c93c4f7217a34407369736db8ca9f5a676be78000fd01d81d2c35b26cbf9fb",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v3/skeptic.py",
+      "bytes": 18035,
+      "sha256": "b57d07d6196e7c3a94b4aec6edd2cefe9311f5482f03002fe9cbca5373d85baf",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/__init__.py",
+      "bytes": 762,
+      "sha256": "bde3e3156fc3c9ad1c527f393d7e656408ad3bef854d2f8d06fb43f7bf211f0f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/backflow.py",
+      "bytes": 20165,
+      "sha256": "dabc0e1b518edca31020ff0381d7df8c1d76b60d44c9269aff8e3b6861c37e8a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/chief.py",
+      "bytes": 205410,
+      "sha256": "a4445966d6d7143a944260bf835899d823b938ce9969469ff0713cf224eb4cdc",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/designer.py",
+      "bytes": 33504,
+      "sha256": "5bb823a9aa0f1c22a1e6f155c3279120e395dc3274eff17f1bd94b2515722c0f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/execution_config.py",
+      "bytes": 1722,
+      "sha256": "a5ad8fbed2813b43ab8cea045a1a33939f136a2a1aee83d64769d1b3531f286b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/inventory_candidates.py",
+      "bytes": 11515,
+      "sha256": "a6dba9327aef3001a6cf104d0425ae357c493a1d2bdaf0d633c2505a0ed7becb",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/physics_tools.py",
+      "bytes": 18637,
+      "sha256": "fcf675cf18095615e365f9927390d55a6bd98119992ced4b5aa360a0f20c1641",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/review_contract.py",
+      "bytes": 4109,
+      "sha256": "1c5a53b869baf682c97680f2cd11539d905278a118eb3c0c2748f3ee2390ccf6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/scientific.py",
+      "bytes": 34304,
+      "sha256": "c0d2a33357fdf2c1712e890a14db70ee17b697bbb7292c5b5c74c14cae42ee1b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/scoring.py",
+      "bytes": 94597,
+      "sha256": "b884819331635f99fbdc3d0f9750b4381bf9a6f322878e5ea660345dfe3cac51",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/skeptic.py",
+      "bytes": 40472,
+      "sha256": "43593df57b012496ed30cecdeb35674624c6b013c3894fa4217a184157271963",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/council_v4/transient_flow.py",
+      "bytes": 13846,
+      "sha256": "37c4bc8dbc392758d9d0e4c9a074aa886dc7ece2cdc712e5548192cdf2df844c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/design_space.py",
+      "bytes": 32585,
+      "sha256": "3c99605fd86c11172b01b4993e74cb706426530b7cd627de2da5ec4bc75e7d37",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/flow_value.py",
+      "bytes": 9576,
+      "sha256": "a1963c225b1ed8ba5b5296d70336911aa7d1ccebeea9a4cb589a7566965da1a5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/llm_agents.py",
+      "bytes": 43729,
+      "sha256": "3bcbcc3c07396b4d81e317bed2ec904f0a6c337c4568aac113243ec03f429b94",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/sampling.py",
+      "bytes": 30046,
+      "sha256": "3672dd0d9001edc92a34b6526651a4cb96a3caf9f2958d50c0f60225a73812ae",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/tool_definitions.py",
+      "bytes": 12009,
+      "sha256": "5299e23efab3bb4b830d50344862eed92ba2e55cd762d769fff05dce1fa0370b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/engine/tools.py",
+      "bytes": 17771,
+      "sha256": "898caaf35dfae83ead259420e0a2439aa23dd102591db8dfea9b858d7a905061",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/equipment_resources.py",
+      "bytes": 1683,
+      "sha256": "1421154b79b766eef35bbc39a0ee5209e4193d6fb1010093d6e29b901d48ab31",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/executable_artifacts.py",
+      "bytes": 51661,
+      "sha256": "f9029334cdbd65583192082dd8dd08f91245f9414d727b9440b2dcf720163bed",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/experiment_loop.py",
+      "bytes": 53393,
+      "sha256": "aec603277bcb71d9ec25f344312b30559f7df2e9f48f74e3037aece1bc1deeb3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/final_design_contract.py",
+      "bytes": 54831,
+      "sha256": "898b1280306c3a5ed7409c8de5532de3ebf3138e225bf11abe6365430baa05a9",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/final_design_validator.py",
+      "bytes": 10423,
+      "sha256": "289cd987ea159ecd77774b4947621582a67992f1fe5a28d9d904976d2384717b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/final_engineering.py",
+      "bytes": 4419,
+      "sha256": "1f5f65a46c235acf10dab772d2e4fb169a67b81f5f2973bfb48b52a847f03525",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/flow_calculator.py",
+      "bytes": 14679,
+      "sha256": "21ba362f8cf0222f8b2b930af385508cf186bf018a53f898e22cbb964d1feb6e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/gas_settings.py",
+      "bytes": 1500,
+      "sha256": "38cd0fcec8a31fb6161a5dee306fba096b32949ae70c7e216db303ade645bc88",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/gui_autosave.py",
+      "bytes": 11771,
+      "sha256": "155ffb28b7ec5732c0ec4581e60592ee1d52b263c4f9b24b518862efa509d652",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/input_parser.py",
+      "bytes": 4497,
+      "sha256": "5b06bd2476625b124a08365267b81b120c72bcc86177f4a2d68f12ee3a31b4c0",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/intake_agent.py",
+      "bytes": 48746,
+      "sha256": "011f66c266dfec62010e19a9b8138562de94f2987c13b90357eefa4f84f7aede",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/intensification.py",
+      "bytes": 15264,
+      "sha256": "fd8f5bad4b124742acc0f98808c78105d70033772c43c5fdc204d1c9903b4705",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/inventory_allocator.py",
+      "bytes": 44323,
+      "sha256": "f71c4ddb147cdb0c3ce7b3a694bf9766cba79408833d1e2840f94fcc86231118",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/inventory_constraints.py",
+      "bytes": 39892,
+      "sha256": "dc44ce855957e50332f19d70c86310fae62ae74e5e8aa37ee53bc860bac3a15d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/inventory_profiles.py",
+      "bytes": 33342,
+      "sha256": "2955fef101fdff9889ea7f176cc6cfb82d7849a8fed872bb37805ec28d408cff",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/inventory_resolution.py",
+      "bytes": 15559,
+      "sha256": "987314698de086843de81f368c37346f40f80dc9acfed7b7b171208483b9b2be",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/lightweight_upstream.py",
+      "bytes": 30484,
+      "sha256": "3618eebadc25b846c03b284cfd64ad0bcb1885f6e5446eee8cf72229a74bb6f6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/main.py",
+      "bytes": 127677,
+      "sha256": "5aca827c0ac675c31bfb75442b8342f3a9b63bdba60fd4b39e8fe145dd4e445e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/model_catalog.py",
+      "bytes": 6418,
+      "sha256": "4f695098df629ae676f982490dd6252cb7c3315e23a48ea379a518273af8e69b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/multistage_inventory.py",
+      "bytes": 26320,
+      "sha256": "76b3123e5206e8149f049167f33cb254d78fea02869e5ce66daba16eb5a98e2f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/output_formatter.py",
+      "bytes": 7740,
+      "sha256": "abca9c19f88faf0596492d69b19a00b2df641c57400ab5a306920176e2e3612a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/pipeline_runtime.py",
+      "bytes": 9833,
+      "sha256": "b2be3d626721fae507490fa69acc05c48ce5c00a62d1f355cd978a26ac490794",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompt_builder.py",
+      "bytes": 5660,
+      "sha256": "145751a7b04a1bfae3cad8bad48a7b9bca3a53a0d44b9344460b4280a3098a27",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/intake_system.txt",
+      "bytes": 552,
+      "sha256": "90c894865c4d3a225ec73f9f2e5b5e41d668f511a654b36aff8b739849599fe5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/intake_user.txt",
+      "bytes": 561,
+      "sha256": "7540aeff30ed32af1be48542a5c458413601d7eda8b8b4d7595b8c86a02c64ad",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/inventory_extract_system.txt",
+      "bytes": 2457,
+      "sha256": "b9f12bba024aa9cc9067b5e0650eadac5012de4ffe28a4a5869c96033a32ad28",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/inventory_extract_user.txt",
+      "bytes": 292,
+      "sha256": "81cdc93cde8b9756d480a655c320b0fa32723b0e7c9baf07eff7960cef5b643a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/translate_system.txt",
+      "bytes": 4947,
+      "sha256": "728ec14d72ca5db559a609bbaac19ad0e07ed5f233c02d5b4c7e7df5b6f03975",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/prompts/translate_user.txt",
+      "bytes": 3378,
+      "sha256": "2eaf11680c73c81722682c7e394583f1b12c48923cda9d48dd45c741dbaf39e1",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/pump_settings.py",
+      "bytes": 2050,
+      "sha256": "cbf59ecb35ba47cf12d377b168ba3310786386648d0c9a8324cd6cf91b8dfaeb",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/residence_time_basis.py",
+      "bytes": 7318,
+      "sha256": "60efa720cd0e3ef7d3b934537c1fa8132ef26eb36949eef3cfaefeebfee6c79f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/result_reporting.py",
+      "bytes": 12439,
+      "sha256": "e211f88bd4b7b4e62630a2c9ec3abada2315b460d61cc166876bcc56588a819e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/retriever.py",
+      "bytes": 13948,
+      "sha256": "a2b3e056e6a9eee3e693ca43db0a81d113ef7c992c631512831124f2d04cea3f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/revision_agent.py",
+      "bytes": 14586,
+      "sha256": "52ec4fabc805178dc818058957f61b22b3dc3f77056ac041e6f9f18af0025904",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/schemas.py",
+      "bytes": 50727,
+      "sha256": "9e2e97267058d16be34930f45004d816c825aa70accf6c0dc7ddf7587ed0dc56",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/scientific_evidence.py",
+      "bytes": 13758,
+      "sha256": "acd12e60096755a9a8c0b310c144099228a91d85b7afe23ce0ade181dfca88c8",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/scientific_gas.py",
+      "bytes": 3062,
+      "sha256": "804c83ee8b861bdf48f1ffc1fb93b1b5efb3fa28e375226ec3ada994249bbd78",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/scientific_objective.py",
+      "bytes": 7066,
+      "sha256": "ff3533c1504f64201e553c2b3ad7ad00ac7b5984f4385f2a4d79bbcc3e626a23",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/fixtures/council_response_shapes.json",
+      "bytes": 568,
+      "sha256": "c7f3ba12525706f2e826a3641d6f255497287e52f4f1801b5c411ef5d94ac429",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/fixtures/design_disposition_scenarios.json",
+      "bytes": 26295,
+      "sha256": "41a8f83d29594a38fcafc411e57b7ab0c5fd639bb1ba96391d14f8edd4ef5682",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/fixtures/diagram_stage0_topologies.json",
+      "bytes": 5117,
+      "sha256": "795eccbd74dd9913bdbe6feb63e4c96cdbf338297027703da65e6a4568d441e4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_astra_provider.py",
+      "bytes": 4838,
+      "sha256": "72433a0576916c3a194833554979fceb0ac1cf88ea36d92d3ecc05c6b714fba5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_batch_input_normalization.py",
+      "bytes": 3622,
+      "sha256": "729fe68ed05bec24035903df8c4398fc0dc7ea1ad08c2528bc1eba9679ef65a4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_catalyst_role_contract.py",
+      "bytes": 3447,
+      "sha256": "1deed2a25fbac37ca052d26980b8045334eb466a5874a4cc5cb15906a6308046",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_chemistry_agent_retry.py",
+      "bytes": 1582,
+      "sha256": "9874ff6a7c24cc48f134471cf72ea6baaf501d1579e58f1690b062622916e64d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_chemistry_contract.py",
+      "bytes": 16324,
+      "sha256": "e87cbc14a8161fb3507b47eff254eeff1e35d8bbc346f41a4c59a95328f74320",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_council_backflow.py",
+      "bytes": 11677,
+      "sha256": "dda0cde9f121e6392422655ff03a0aa9c22782c07e04ff907b5d6ad5a2d49a49",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_council_execution_config.py",
+      "bytes": 3523,
+      "sha256": "a45e3f92e38756613eb673035e8c9a19b358d8751c51d207a6232b1be6a1632a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_council_response_contracts.py",
+      "bytes": 2659,
+      "sha256": "6c3525abf24d7a4136e15c12601e1a2b15b497f74549877cf6fb8b471feaebc2",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_design_disposition.py",
+      "bytes": 14863,
+      "sha256": "f08e485d2495ed58d430e838d7e01d3da49fae5dde477490b6fe9f03b5258b4a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_design_realizer.py",
+      "bytes": 33578,
+      "sha256": "16f2cd4af55bbd1e22ef1cf5211181f271d0fbf4f46958ab2a738dccba0e00b5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_diagram_artifacts.py",
+      "bytes": 3192,
+      "sha256": "36b3557d37b17fc0da830770cb028101e66df1fd4e4e35cc236113a8f61da703",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_executable_artifact_contract.py",
+      "bytes": 22391,
+      "sha256": "5922a66bba75ee4458d67059bb7afc20aff4f8a91114f3baac0e06a92238ccab",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_executable_artifact_normalization.py",
+      "bytes": 534,
+      "sha256": "72411d629732f43f3460b9c0c70c81f9ff95a6e8600e3fcdd48ed4330e379c16",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_experiment_loop.py",
+      "bytes": 17588,
+      "sha256": "dba249eeb0b73bf07382532d517f37437930a6b13a11f12b06354fadecccbb68",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_feed_role_boundary.py",
+      "bytes": 3811,
+      "sha256": "960d3f4319d7d56dc9d58c2103f5c0f8915eda52bb5d271027315a16025f25a3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_final_design_contract.py",
+      "bytes": 17773,
+      "sha256": "7716ed2d6b6cbbd2eb973833524cf193cff46c7283256140aeb63cf16ab3169f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_final_design_validator.py",
+      "bytes": 9014,
+      "sha256": "6ac89d286e05e4dc7fb79a1f3f4236d6ee50c875ede0b4f16db48a66c62a3d31",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_flowsheet_linear_layout.py",
+      "bytes": 4986,
+      "sha256": "80bc7f6e2c9f5c2b7f43203841de8cb8cb739ca8eec9e853615a87b4674ccb4d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_flowsheet_separator_icons.py",
+      "bytes": 1572,
+      "sha256": "ca9112ebdfc558702e7b0c2634eef7c3a8d40a9929bdda19c1aa236e0c555a5d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_gas_component_roles.py",
+      "bytes": 2297,
+      "sha256": "e9f5e3a43ed5a8bf7bf517b87b7dd4c4444d5cc6fc47c691e63f4a738b5d323e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_gas_contract_roundtrip.py",
+      "bytes": 4758,
+      "sha256": "51fb9bad153d39085f5c822b58915144236da53db504e5e3c93358c18483dbc7",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_gas_settings.py",
+      "bytes": 2917,
+      "sha256": "2cc360566daba31728a5d8b6e8fbc89701e7f65288303a22130d5161945acc8e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_gui_autosave.py",
+      "bytes": 4650,
+      "sha256": "22157499360ddfb7a7fb88ae43eac5c0a87842afc15596a2f8ff236046025c69",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_gui_requirements_result.py",
+      "bytes": 3535,
+      "sha256": "feaeefc93a5fcf8df34f6428d84e6f5e05996d922bb5468b6b0d758c3f3b5dff",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_intake_agent.py",
+      "bytes": 14243,
+      "sha256": "ae6eeb4c885c6ce630ba26b782e6719e315181c4bf7bddee93c8ab78a9f9b403",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_intake_campaign_answers.py",
+      "bytes": 3927,
+      "sha256": "2883de5d0490c72b4b5d2061e6fb14408ab67249b7ac16ea03e947c1cfc871ed",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_intake_prompt_context.py",
+      "bytes": 1599,
+      "sha256": "add785dec22bbf8b89e342ece4e392e98a2c27fb4208a661fe9db330fe07b6f0",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_intake_translate_integration.py",
+      "bytes": 3753,
+      "sha256": "5852f31bd0146ea649a4a1eb897331d99c35da80eb616120f1d94dddfc0ac022",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_allocator.py",
+      "bytes": 13562,
+      "sha256": "22c21c711db36668d8663b0eeee5648140671963274d933d6ef2e4f1fc300ed1",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_constraints.py",
+      "bytes": 12074,
+      "sha256": "546118aba041387bccaaaa86a51081c11a2a6dff2ec4541b5db15aa0ce77013f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_council_contract.py",
+      "bytes": 5908,
+      "sha256": "d84ef2c826435bb3b99022823158c8e8bc33b30919d6754f7acf19bf366cef03",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_document_ingestion.py",
+      "bytes": 1909,
+      "sha256": "15c384edca400bf6691a5b7c881f48a3a772fd2cce7dc989f9e8248d559ae60e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_profile_intake.py",
+      "bytes": 1807,
+      "sha256": "77fef9aa1f633dcab965f306562186ca97059850b1157cb113b9f94085a54b29",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_profiles.py",
+      "bytes": 7352,
+      "sha256": "7db4929ac10a81dda635dd02951600f9c0e8ab6f89db8cdb06e66eb424dbba2d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_resolution.py",
+      "bytes": 9880,
+      "sha256": "47e4c0e9b0b8e9951db44db47e1fe3e20f6ac8f0db19fef83bc8f1a257962dd7",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_inventory_result_component.py",
+      "bytes": 1484,
+      "sha256": "0832bea24f6308ddcbe70f55d9d31d17327aebb42e09068703446dac47ca3eb5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_khu_assembly_profile.py",
+      "bytes": 1766,
+      "sha256": "341224762eb98727c9d96573ec8e739e228d4efae9947a31f83d88313d8b24ea",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_khu_equipment_resources.py",
+      "bytes": 6902,
+      "sha256": "c14958851a08e43aff983d6e88ca0f305107f9dcbfc1ab583b495379f300a90d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_live_feed_role_replay.py",
+      "bytes": 3212,
+      "sha256": "b2d1050774b04e70b163ed133eec565628284109e9705f169c15635c1a0f6fca",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_multiphase_design.py",
+      "bytes": 34827,
+      "sha256": "23786c584ec745f4f8d4287fc60ff6a49da0c217175131d1b595af75041295ee",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_multistage_inventory_reconciliation.py",
+      "bytes": 15246,
+      "sha256": "6269952866ef56ed4e5762231c8a275b44b5249919e9d366f464d50b34d702dd",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_multistage_topology.py",
+      "bytes": 14870,
+      "sha256": "ffa85758e4c756265ed2c28d2912e4b0816f789279b70fac0fcac06caf4a907c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_pipeline_model_routing.py",
+      "bytes": 2996,
+      "sha256": "92d13b087d142138761d0538f3a8b752242b5ed150a58ac637670a8a1938db51",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_process_diagram_component.py",
+      "bytes": 3076,
+      "sha256": "a996093275f5cd16238c986f30bc7fde55871f7ad9410fca65c605c3762c5a7f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_provider_normalization.py",
+      "bytes": 2601,
+      "sha256": "69d31465be954e6b389ba1a0b6fadc20bec5f2ffa4d05d2168d0a179f9ef7221",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_pump_settings.py",
+      "bytes": 3834,
+      "sha256": "5a9cba19040f95e4d98c6ffa883bcfe7b41bafbc067e54428abf2659ac70ea33",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_rationale_delivery.py",
+      "bytes": 1705,
+      "sha256": "cf2faf5ff06d751de1c4dda2f0e36d69dd95f6741a5561867965b28a275c4fd4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_result_reporting.py",
+      "bytes": 10955,
+      "sha256": "86947c2e461311c1d6c0b5e1f60ca1179488d7991079db8151476cc9b9a7162f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_retrieval_fallback.py",
+      "bytes": 5745,
+      "sha256": "94ffb56cdb28165c6042ef4832547da52d9a99310323d625524311e47a1d308d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_review_integrity.py",
+      "bytes": 10609,
+      "sha256": "b9912ef5ce19e9c8d3c90b694e9256c0e3138ec81972c52b109cf56a4c7113d9",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_scientific_council.py",
+      "bytes": 7727,
+      "sha256": "95510a788d3baced8951e33e422e7e87262a2b899849b93b9f88b0fa95ea8d54",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_scientific_evidence.py",
+      "bytes": 4014,
+      "sha256": "5525b18682c1e075279ebe6147fd4ffa1fe01024822a16ebee8539b53efba2a5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_scientific_gas.py",
+      "bytes": 13938,
+      "sha256": "dd44e86e0aaf322600e683d7ec0f53b0caccfacfebfba2f774d4ca8d0ac2a127",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_scientific_objective.py",
+      "bytes": 8879,
+      "sha256": "b67b4e60a7b745a2770dd50566349157f852cab30a42d5a03b10f8a5173bdd8a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_scoring_coverage_repair.py",
+      "bytes": 4578,
+      "sha256": "7d88218051732cf05f24ad16d5a02feaf81b503b288250ec0515c645a8d2a8e4",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_selection_rationale.py",
+      "bytes": 2061,
+      "sha256": "718dce5421716d9124907cd3ce03fe46da0e5389a48d58a68c951c2711e6c999",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_superficial_velocity_delivery.py",
+      "bytes": 1973,
+      "sha256": "f39d89afd886c509863de14a92c6bdcf958f26672698af3919186a6ff2fe3cfe",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_thq_quinoline_regression.py",
+      "bytes": 11749,
+      "sha256": "441b7fcf632c8de03e08369219bb48257a8760d1fbab14f4d9bfe67a9334ae4b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_topology_preflight.py",
+      "bytes": 6272,
+      "sha256": "4314e90f3629804f52c67dc43c512b76f2c8117e3bd40364b2ac186c4495ef93",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_topology_result_integrity.py",
+      "bytes": 3110,
+      "sha256": "0b82977e748461f13e32f74c55389046bda2b9d0369e2995cc5fa8ac87e38903",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_transient_flow.py",
+      "bytes": 14054,
+      "sha256": "c3998d99187c4ffa9f418cce087d4aa41ce6ddf9dd90528295fb67e15017eb71",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_translation_numeric_confidence.py",
+      "bytes": 3245,
+      "sha256": "45fa4e6125569353bbbfe9b40d55c0470aabb0c29ab7351acbb8316eb4e24383",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_translation_numeric_uncertainty.py",
+      "bytes": 1210,
+      "sha256": "aba3fca77cfc472dd78a7b9d3aaabf4f0283fdf8806becedf3ebe68de3f89035",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_translation_policy.py",
+      "bytes": 10438,
+      "sha256": "bc954fe89b42fc8ffbd8657fed9b7943afb807c49b90e0f742ae6a8d3f2a5a47",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/tests/test_translation_time_basis_integrity.py",
+      "bytes": 4697,
+      "sha256": "bff6465805269cd0821677acff9bc2e20c91072e30e1cc08e870d0760a64b239",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/topology_compiler.py",
+      "bytes": 1057,
+      "sha256": "d8856c6a84c5e10472f4d00ad8c7d5433c31f2c3a42d0623e4ffe1cb368ecaa5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/topology_polisher.py",
+      "bytes": 12073,
+      "sha256": "c5d55152a8d09c0564c071b8501980f00e3738ea343d1ee97e97f73007fc02c6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/topology_preflight.py",
+      "bytes": 18704,
+      "sha256": "325fe6269ab371d3d30c469eddd8091188152df3456bb7d34d9a1ab16aaca71b",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/topology_semantics.py",
+      "bytes": 8672,
+      "sha256": "751674d08ecdc509e167d0c2e282c54720cb014c65cccf7d3681d983716a027f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/translation_llm.py",
+      "bytes": 12894,
+      "sha256": "1e624a8376d330aaafc9d3e7644df60e32bb2027913d01e89f52c7de4f81f734",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flora_translate/vector_store.py",
+      "bytes": 15360,
+      "sha256": "07cc8976125fd2bf8db67fbb6035e92ea726ed882375bb6763e72c3bef9b0009",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/FlowPilot.spec",
+      "bytes": 2416,
+      "sha256": "b974814f772960832f572f6de680bc6415a432b27b50c68d7eb6ac42472c045f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/README.md",
+      "bytes": 2272,
+      "sha256": "1f8e4b833dd22fc6d71afabf05edcfbf379de83b9fb5eedc2e2b22bae1c66392",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/__init__.py",
+      "bytes": 56,
+      "sha256": "1c41b3aa2256a3108c6fd87f263abf2abf9936b206f9bd8129f288beb5bc5d68",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/__init__.py",
+      "bytes": 58,
+      "sha256": "22a76288b8ea01907b18fd87546dd036a7910e22dbffc16c3abd82dc56a368df",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/app.py",
+      "bytes": 23929,
+      "sha256": "e4cc962699998ec505e057dd088e35a11ca4a7abb25b15dcef9b12185f5f7325",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/deployment.py",
+      "bytes": 1272,
+      "sha256": "572b9ea1525244845b0b573944e333df37e442ff2293b80b39e6bf6ba70be3ce",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/desktop.py",
+      "bytes": 1971,
+      "sha256": "0c9673587078c5e2cc62a5a1a208c064ed39a8dd298f6028bc406ea05006b86c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/diagram_view.py",
+      "bytes": 156,
+      "sha256": "60f76dd055e8c0198ae37306b4bd502ac388f82aea4c69b3df9baae60185c1db",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/inventory_editor.py",
+      "bytes": 1174,
+      "sha256": "a629d79b9828d1336dbfefec5bf783ab1f5f29ba3f0116524f8e6a234dfd375e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/jobs.py",
+      "bytes": 12962,
+      "sha256": "0990744c7c3afd5d32b1adb2d34db4261ac04680d01de0b09ecfa6948b8ffb02",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/backend/requirements.txt",
+      "bytes": 333,
+      "sha256": "5e7d8a6530691d3a1ab38f8236576cf118f32c6823f5808380eb464448f33a94",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/build_windows.ps1",
+      "bytes": 1525,
+      "sha256": "ce754a3d655cebcb501c051c1437d3b2bf25d9ce9eb234b3f81934b0c481c59c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/index.html",
+      "bytes": 346,
+      "sha256": "74ec1c4a26c5976d5ce884733502ea14e4d1e339ad6656a07e0d016cfb5405dd",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/package-lock.json",
+      "bytes": 61555,
+      "sha256": "18130b57699c1dec5ded0c0f523ea5d05f1c5a1aaa56886bd5f41763a7cfcec3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/package.json",
+      "bytes": 589,
+      "sha256": "aa784b9c0db17ad1d1c7dd0d5b151be2617699fcb932932c8432756f859659c5",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/playwright.config.ts",
+      "bytes": 589,
+      "sha256": "7e9ca79c1d4cec32f77c43dbbb5f5053e20383f93137b9dcef6e08499edec4d0",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/src/inventory_workspace.tsx",
+      "bytes": 26598,
+      "sha256": "d9209f08f88bae149486904f72d97028287b6e69b35663ca2bee51cd45feb294",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/src/main.tsx",
+      "bytes": 70735,
+      "sha256": "623a8787762a5135e2ca56fb557c1c3484ff4d73a1fc7942ca3b905c78eff666",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/src/result_views.tsx",
+      "bytes": 19196,
+      "sha256": "7b022ed8c16d5905013de9615f28609ce7a79eee3981b799c5c297626643c841",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/src/styles.css",
+      "bytes": 43778,
+      "sha256": "a71a8c9950e0a8cecbca4633719ecf64f53763c1e7ffcc1ecc11fd22e994cd8f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/backflow-review.spec.ts",
+      "bytes": 4098,
+      "sha256": "6870fcae6a659d588d88f315db42cef47854a02b5c40e056f84514b52179df75",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/inventory-editor.spec.ts",
+      "bytes": 7684,
+      "sha256": "843ccb1c825c7fdfd4b77b6d20f6df3aa3f91788ac43d8142bb085c3903a2653",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/inventory-resolution.spec.ts",
+      "bytes": 10293,
+      "sha256": "fd1e145adf508ce142f0766b4f81b6145c77d517828190680f1f8a89376f1abb",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/scientific-policy.spec.ts",
+      "bytes": 6169,
+      "sha256": "c2d34a32da20cebb9f623767a8e315e68c3cc75c86a501bc8b94c918f08deabe",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/stage-reporting.spec.ts",
+      "bytes": 9761,
+      "sha256": "8c5e17ee72e8f389da16b6755f16cac3970254365753424a7394f7ef4c63c9b9",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/workspace-lifecycle.spec.ts",
+      "bytes": 4667,
+      "sha256": "0e328ac97cb93c3e735c3f290e6dd92586b3e008f113ae060862c7c76cd921ac",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tests/workspace.spec.ts",
+      "bytes": 6993,
+      "sha256": "4084c163cd17e200c186ec7465560f0dfc9353a85dbda6e6ad3abfe67c41324e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/tsconfig.json",
+      "bytes": 524,
+      "sha256": "2174e4c635b46be6c9d76106c0af1881d8b695019a733d8ffc946fad9a28ee46",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/frontend/vite.config.ts",
+      "bytes": 837,
+      "sha256": "0c57d4673f91a11a5b3ec9e9d0e4c470b43430c152871447fa817bd0bb64831a",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/launcher.py",
+      "bytes": 168,
+      "sha256": "4a7d91c7f22cc4f3529c93e597c90c25e6ebb05f98c4edb4cb43bc40685e2f37",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/run_dev.sh",
+      "bytes": 973,
+      "sha256": "ecf3dde7e1368d59f795bc131d25b934e7dd6985fbc9baf5126b14ffe0d8f97f",
+      "mode": "100755"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_deployment.py",
+      "bytes": 2282,
+      "sha256": "5bfe89cd9fa13224142a7c43daf701e0d7eab8013b6708ed62d1e3d1e814e54c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_deployment_council.py",
+      "bytes": 464,
+      "sha256": "de0987a80aae414ce8d94207719e16b0acc48e50c8ce637e6519b1648b94f8f7",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_inventory_editor.py",
+      "bytes": 5580,
+      "sha256": "b8e165645992fce14b81454f197d41d617d5d7b2e46f2f9e62e61796e698264f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_jobs.py",
+      "bytes": 3818,
+      "sha256": "14f79eb710cd79440a2986d9050f71918fe4a376c7140a11f417044d6a83f893",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_portable_graphviz.py",
+      "bytes": 752,
+      "sha256": "ed9b0fc0943914c86404d37e3b1b71d3eded8bf3e2a220cfb44a8de844ae7e24",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_result_reporting_views.py",
+      "bytes": 3440,
+      "sha256": "0a0bda494e075bd797eca8d0fb59dec5750029deb9f8c4ed7d4996b543f41566",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/flowpilot_webapp/tests/test_webapp_api.py",
+      "bytes": 9174,
+      "sha256": "cdef6d29622643545335c480c137cf558d269f116a9a568e9ee4dace4db2aaf2",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/__init__.py",
+      "bytes": 33,
+      "sha256": "e5ce16eb731fe5b4fda431fa212aa777848448a613105054f223f98d6dd9769c",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/benchmark_figure_studio.py",
+      "bytes": 11082,
+      "sha256": "50e437fccc43eb0328c757294d10972abe848007c882fbacf3f623ea559910d3",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/corpus.py",
+      "bytes": 4215,
+      "sha256": "69def300848e680d5b0dfd5a01b7d3597c9a819bb5a8550f72dd730587c64597",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/design.py",
+      "bytes": 6106,
+      "sha256": "427a62ee74fa34f0ca099eafd4604882664699d36659b04181ea20aebc9588a6",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/diagnose.py",
+      "bytes": 4609,
+      "sha256": "c2e4da65309966c4940a8ed1ec53a994ebc57ce2368f04848d83d7f0afea9fff",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/flora_design_unified.py",
+      "bytes": 85026,
+      "sha256": "d6872c297d49feaa3a1bf922ce59d6db7a1dc98b7ca20cdd663d3aa329c0507d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/fundamentals.py",
+      "bytes": 8875,
+      "sha256": "c77e351e4c11ed9365502db6210692d37e8404013ef2cc8f666256b4596c90a8",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/inventory_manager.py",
+      "bytes": 23726,
+      "sha256": "9d13f5e4b6ae35a5891b170be428141d469e0dbbc01cd3b67f91b8b58d41698d",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/optimize.py",
+      "bytes": 5233,
+      "sha256": "29bf18ff419e32564c9035b78703d0880f337fefc48e01bae0770bc72de30f5f",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/prism.py",
+      "bytes": 4032,
+      "sha256": "b8361a7fdbc109c34c0cc39d17ce56380f7a518136a996db46cac40cb9df1905",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/scout.py",
+      "bytes": 6701,
+      "sha256": "54d7984fca4d7fde9dd9d77130b26db173c6fa4c7f51b3f75614d7cac3c5f73e",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/pages/translate.py",
+      "bytes": 26457,
+      "sha256": "b24dc0fe09bc73199e70a915b01f69970f0794a17467820e69c07ebcff99cf28",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/paper_knowledge_extractor.py",
+      "bytes": 39175,
+      "sha256": "1041a6f4ce68fff61dc1ba563ee86a331d8fabfea76d219b1873eb9a1cbcfeeb",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/processing.py",
+      "bytes": 22653,
+      "sha256": "c2229561c88275cf6baf38072eb9bebd77013c4a992be41f77b927046fbddeb8",
+      "mode": "100644"
+    },
+    {
+      "path": "baseline/flowpilot/visualization/benchmark_figure_studio.py",
+      "bytes": 14723,
+      "sha256": "b4e5c9787e5de9988de0bef3a0774acfee5efeadd502355e2915d7f6eb533349",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 5270,
+      "sha256": "ed6bc2c0f1ba7c192de77462c5ccc653823a0424e39b29f9831fbfc6a0e4be8d",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/CONFIGURATION.md",
+      "bytes": 5760,
+      "sha256": "cecb4e4c2e4ae4f590543bf477438d85daf49191c51138fc43e5b54c4008be36",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/FEEDBACK.md",
+      "bytes": 2237,
+      "sha256": "d081db94012bb5cb431de0bfee10b9428f9db46668e28c2082ea74265f42d602",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/NEXT_THREAD.md",
+      "bytes": 5562,
+      "sha256": "03e0d37ce8cc7988f44dfd614a2634dd44e086b38c4262b229e1bea0282291b5",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/PUBLICATION.md",
+      "bytes": 3530,
+      "sha256": "2663964742dd285820c82c9c41db54041daea656f4edd6bae830a564ab4053ca",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/RUNTIME_STATUS.md",
+      "bytes": 4210,
+      "sha256": "4385733114a9def506fb34257ee11a5b8c3f381b4b12b94e01f6cd7238ffbb8c",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/environment-flent.yml",
+      "bytes": 7109,
+      "sha256": "43d1cb620811d5e370c5be33550298be8c73b579dd5f04712b4d57cf0e45c31b",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/figures/flowpilotx_architecture.png",
+      "bytes": 120064,
+      "sha256": "56115751a085bfa5daef61418b7e1795a10c9a1811ceba6b976dd5b3b3f708ca",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/figures/flowpilotx_workflow_comparison.png",
+      "bytes": 105673,
+      "sha256": "c281410c5b6a7c336a5f2e8982ca10bbf42fd99c5424c6ee2c2df0b70d9c069c",
+      "mode": "100644"
+    },
+    {
+      "path": "examples/synthetic_campaign.json",
+      "bytes": 14550,
+      "sha256": "e94972f9ed74081c440d5536aac6ca0b8e2a7073cf07e21e33123e8185529635",
+      "mode": "100644"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 737,
+      "sha256": "a62a12f9d459decdd3496850f6e0cd1a4a017d278ed6ed87e75d98e1a22dfba8",
+      "mode": "100644"
+    },
+    {
+      "path": "requirements-optional.txt",
+      "bytes": 214,
+      "sha256": "1be83e6bc7a6f35c283443d0dc81ebd9c9ce1cd43b3558611b9a6682fd7a03ec",
+      "mode": "100644"
+    },
+    {
+      "path": "requirements-runtime-constraints.txt",
+      "bytes": 307,
+      "sha256": "551c4592379b95be9e1e79a1cfbbf1fdac1c29d6f3961b4d853fedaf9a6b8389",
+      "mode": "100644"
+    },
+    {
+      "path": "requirements-runtime.txt",
+      "bytes": 345,
+      "sha256": "b6599a1b8f27c30e753860846e16ef82e419da3ba2fd564ede72c39650efe2b3",
+      "mode": "100644"
+    },
+    {
+      "path": "requirements-study.txt",
+      "bytes": 166,
+      "sha256": "a1232177d6be8037f6b488ce325b192c526356fe882044f49ffb3b7448ea5a96",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/audit_sources.py",
+      "bytes": 8277,
+      "sha256": "8710119e5a2968c10d44525f9d30d8a01cfa4d364f45820897cd76ff337645bf",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/benchmark_flowpilotx.py",
+      "bytes": 17650,
+      "sha256": "7809eb5c5747c1c5c73e15341d60a8fd28192b4e8e99004d60959fa78271ac56",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/benchmark_flowpilotx_feedback_qualified.py",
+      "bytes": 3360,
+      "sha256": "d7128abde669df9bb311c8ec6eabd1a9ef0cb097d7ad7090d14e6492403c9f5a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/build_corrected_screen.py",
+      "bytes": 6440,
+      "sha256": "7d971ab25639674cadcc7f3dd623f1860f4bf2680cef1c7465e31567a484270f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/build_flowpilotx_khu.py",
+      "bytes": 1352,
+      "sha256": "c22b352691460abaa94c6120c8b122490c0101418248711c1c3d50a20ee98a62",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/continue_flowpilotx_astra.py",
+      "bytes": 889,
+      "sha256": "7aa90ec9eb1d4937f9c4acd36b5af78887aebe6714fbc31c568e65124d66e127",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/deduplicate_pptx_media.py",
+      "bytes": 4641,
+      "sha256": "78f73cbdef939a0e912cbb7dd95b28e165367b263cafe5472e5b523f7386079a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/finalize_flowpilotx_khu.py",
+      "bytes": 5072,
+      "sha256": "1e8f4cb5b955adc250cbdbddfd72bade77129960cc9aaa48ce59bb77f55fa296",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/import_flowpilotx_astra.py",
+      "bytes": 6271,
+      "sha256": "1f59cd49216a794e14a3a8bf90152e517812f0850e5af9c7a9b25468e7792afb",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/merge_flowpilotx_presentations.py",
+      "bytes": 29841,
+      "sha256": "649d08bd38c3f307abd4b9e820167ed78be717e509b584ac4d03ec41ed655ccb",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/package_flowpilotx_delivery.py",
+      "bytes": 5628,
+      "sha256": "c554c5f68fdfa8dc87093febdf6e6a60444d16ee0dd96f4cbc332abf813f6735",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/render_corrected_topologies.py",
+      "bytes": 648,
+      "sha256": "a08675a59665dd9fa85c93c07f2de08a505f108a59e46785d074e99db142ca1e",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/render_khu_topologies.py",
+      "bytes": 648,
+      "sha256": "4b0c4559efe7e0267001bcd12bad24e8905da19184f83f387e0f45dc0f2983ef",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/resume_flowpilotx_astra_council.py",
+      "bytes": 930,
+      "sha256": "d4db9c012b43f23ecbdeb2cdf610e76b5e96c495e68dee8ea92e8dec010f0834",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/run_flowpilotx.py",
+      "bytes": 292,
+      "sha256": "2490f77362b528bc7f4d1d69e642774bc5a74d30b4b2867b6d9f9cd4ca3be0e3",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/run_flowpilotx_astra.py",
+      "bytes": 1273,
+      "sha256": "5b437530f2099577cd1cc050f040969be772ac6892a122379d5a6de742e48b7d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/run_flowpilotx_platform.py",
+      "bytes": 191,
+      "sha256": "ccdf1597d033aeacde5dc8cc6ec8e6d2d0dad9fb91da820e0e4c5cdbe55be948",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/run_khu_campaign.py",
+      "bytes": 2073,
+      "sha256": "69c167269908a47c1a1774e3b223d0f2d14e01517d019d37263cd5e4d39e0020",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate_study.py",
+      "bytes": 3979,
+      "sha256": "a15d20b2b1b49ce63e3e6759d8413cf7a82bfa48cad7d05b56939c55e8983f05",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/verify_handoff.py",
+      "bytes": 4735,
+      "sha256": "9ac6ae386cc0572d3ed67e58da54cb27f97f9b9d76625cf27fb354a0e1aa4e57",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/verify_khu_campaign.py",
+      "bytes": 39032,
+      "sha256": "6b04bdb2c4696b8e4f68d1c9eb25bf6bebed87371b10b46a1ab29484326d8178",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/__init__.py",
+      "bytes": 171,
+      "sha256": "12039f694fea4ec55d1bdcdcba1e446e9781139769ababf031fa1a59b9fc02a5",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/campaign.py",
+      "bytes": 19888,
+      "sha256": "0b970cfdcd1ad3b178c0c48be22af5006daf605fe444efa4e23c7085cce67268",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/demo.py",
+      "bytes": 7510,
+      "sha256": "eda704167707a5cc20376737fba0eec8b6c68411b69384f958f39ccc7dcf27bf",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/evidence.py",
+      "bytes": 15127,
+      "sha256": "621ae87c992dd42242d0fa8b1081a249e8e3499f12b362d1ea52f071314344f1",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/gateway.py",
+      "bytes": 17694,
+      "sha256": "fefc47d70a5f8a25f34c10cad0b142d111d950e73f1e788ee95e5a3d1283b100",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/gui/app.js",
+      "bytes": 57962,
+      "sha256": "d025af5be248fb77d4b823f64e2bc9da3bef7e139529bb445f79ebc7255f69f8",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/gui/index.html",
+      "bytes": 21011,
+      "sha256": "8f842a157dcfe21dbfdf51fbb5f8d147a522304e1431c7976aa274a97adf2e4a",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/gui/style.css",
+      "bytes": 25167,
+      "sha256": "78d749ef28052ef6747e2903ec83adf9c2ccc5216c36e4ed3ce103d65c56913d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/inventory.py",
+      "bytes": 8100,
+      "sha256": "8e7152e829eced0c982f8ad16e3fa68626d5d20b61bfbfe684bb3de3ac189073",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/review_import.py",
+      "bytes": 12863,
+      "sha256": "199071fcd9dea57f0580daa46542902ed44cf21b78e22ed4634840de35b23e19",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/selection.py",
+      "bytes": 25659,
+      "sha256": "79b991d1a5abe629c65ae52a58631ae22aa9e82ea1dc77ae1e00ea813998ada6",
+      "mode": "100644"
+    },
+    {
+      "path": "src/flowpilotx/server.py",
+      "bytes": 17856,
+      "sha256": "1601edeb46746ca72b23ae1784769f5edcde020fef6a97d38c30308d338f2364",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/__init__.py",
+      "bytes": 103,
+      "sha256": "64292b2aae539db551680554bd520a45d561d12a9b7c15983a593f6da4be6cc5",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/__main__.py",
+      "bytes": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/campaign.py",
+      "bytes": 14098,
+      "sha256": "9b105756bd84ba9a3d552d6315f0a57d615dfaf54accfbdcff93175bd489064f",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/campaign_evidence.py",
+      "bytes": 18938,
+      "sha256": "8636dd9697e454f2787b04f108e81fa972d8a47bf8cb0124ba25123d271c69b4",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/campaign_report.py",
+      "bytes": 47720,
+      "sha256": "28246653afa88ff89ef935af11fb09ba04a5ec827aff6cbde37a148a25bbf202",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/candidate_space.py",
+      "bytes": 12227,
+      "sha256": "9699fac3f44d8819185fafdfb33b129a2dc019c3ce62fee1fea169c20898f5f6",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/cli.py",
+      "bytes": 2433,
+      "sha256": "67d69ff2d0d9807a55f0dc742bb9467dcd28557636763329ed13a0cf8914eb4f",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/comparison.py",
+      "bytes": 18793,
+      "sha256": "2fbeaa6eac422b494e23dac03be30a88f4649b4c9c1f3ef6c5d9e4cc069d890c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/conditional_planning.py",
+      "bytes": 18293,
+      "sha256": "296613be7c8fb51d9cd27b554d694fd292b7e25f15ef10b15323a4951862bbd8",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/corrected_design.py",
+      "bytes": 28805,
+      "sha256": "126bbc214b7ecd001db002519cb1522a9448db1b36138ba3c45331a1b904dd9d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/corrected_figures.py",
+      "bytes": 13803,
+      "sha256": "7abd377c86e906ba0549f8bf3f72211828fef985d7330cd8676387abea36c387",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/corrected_report.py",
+      "bytes": 31937,
+      "sha256": "b6d9d3512ce18be0c75640aab9002659dab2090373e1d95a052380dac7e43773",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/evidence.py",
+      "bytes": 13778,
+      "sha256": "3ec29a93b67dc175c2dc86ce34b49228301b6ca6e89d673d06e67f183a9bbb7b",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/export.py",
+      "bytes": 37360,
+      "sha256": "9a21639b7cdc46ef5e24340e831977aef2416a07e00ce28221ce9596ecdadb59",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/feedback.py",
+      "bytes": 2846,
+      "sha256": "d2fb0c5468b298c0f4de197a698ef966f867ed4107fe9380d22c031355b35755",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_astra.py",
+      "bytes": 18833,
+      "sha256": "44a5394cbd8ee849d0c15ec5a5a81007f21d435d5c26dbe71b978841ab34d016",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_astra_council.py",
+      "bytes": 6661,
+      "sha256": "b3a8b135cd013153a4051f4fc3701a195ce3fa80e919ee8b62e196b2714b4115",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_astra_reconcile.py",
+      "bytes": 9771,
+      "sha256": "50ce6d6bedfaf50ec04b7458a0bc48ff5c893ce8509c9574bb0c29d04c29119e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_figures.py",
+      "bytes": 8035,
+      "sha256": "ed3b9f5b52cbe2c2ab778d32dfb76158c0c9e0a741f3ed35d83043bde9ba9697",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_profile.py",
+      "bytes": 31906,
+      "sha256": "031bf39d45cee46b5b359f5aeaf06ddc3d8ad4f3e0f7326c3e3d48847555d326",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/flowpilotx_report.py",
+      "bytes": 12863,
+      "sha256": "c3ceeffbe3e30047c01cde664cb90f177ad34490beb3ba74a7a21eaaa81ca178",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui/app.js",
+      "bytes": 28649,
+      "sha256": "76be7a07d352e2d5bc97d27209188ac1cd56ab1950d57a3e08581d9358fcf0d7",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui/index.html",
+      "bytes": 15165,
+      "sha256": "86abbe18824d6ecd55e472cce5ac97abe6362fcc0e7d0b06442accc94ee99da7",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui/style.css",
+      "bytes": 23333,
+      "sha256": "8ab8d29e723e588c777d0aa4dd05bcb46d39415770364caf2319a330017916e6",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui_data.py",
+      "bytes": 22512,
+      "sha256": "7ff8b4bb8319a389a0c535ffc598a90af2ec9f5716cfbac389b69f76c74bac6b",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui_selection.py",
+      "bytes": 26070,
+      "sha256": "d81c1f08af46643140e0b9b91d8886f12f59cf3732d3ebde075616bd0fe20574",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/gui_server.py",
+      "bytes": 19371,
+      "sha256": "c8843d941d3e6f8c2d85535b4c2e5b4f2762e49c046227949ef0bf465621b33c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/history.py",
+      "bytes": 17765,
+      "sha256": "4b69e919028211ef028d4a5832519b07393540c89b3d1c4429554d65a04456ee",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/history_hypotheses.py",
+      "bytes": 35440,
+      "sha256": "1daecccb1a45bcbbcda51a0faacf423f49022b21349d0c0c610c3cb0e21600ea",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/inventory.py",
+      "bytes": 22614,
+      "sha256": "034a3ff7b3a418430502bd0f32f38d8d6674c06c9b068a043df5bd89e0c7ff10",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/materials.py",
+      "bytes": 6398,
+      "sha256": "31dcdfbc1ba95ed7fa44e4d011aea1fb97230530dae8856188a6d882d8229d02",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/model_gateway.py",
+      "bytes": 29183,
+      "sha256": "130cfc3ee2521352682c889cf6638ba2eee56a34e659fa56ad890f0bc14eb62d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/observations.py",
+      "bytes": 6762,
+      "sha256": "343a600752aaf656e324c097363701f53913f04009b8a39621fdb1701572e7d6",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/provenance.py",
+      "bytes": 1545,
+      "sha256": "d44a234041ed7ef9dee90f2a96f44b2b43f78f3d6723e52ecabcc1d0070d33df",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/review.py",
+      "bytes": 18062,
+      "sha256": "c0855d5bd1250040394c5ab76b9949d9a9ff09acdffc551b771a1c1da464f3e2",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/screen_selector.py",
+      "bytes": 5782,
+      "sha256": "cb995fee45a690f14805550ed4e955e4aab16a997f4ff269d40f18124626099e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/topology_figures.py",
+      "bytes": 14089,
+      "sha256": "7eca52c7c77498d3190d9dd18938275d80b5be83050a1ea67b0873719cf0e760",
+      "mode": "100644"
+    },
+    {
+      "path": "src/khu_sulfoxidation/topology_report.py",
+      "bytes": 21081,
+      "sha256": "8f1c3efdc7445bc212005756afb390933829e407d1985c162e415f8cd142242b",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_campaign.py",
+      "bytes": 4608,
+      "sha256": "94a9ff024136d87fc261823f93a017604e8cf7430a08ee2f71fb35bd83fbaf2b",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_campaign_report.py",
+      "bytes": 11296,
+      "sha256": "d100fcec521bc41f5d5e31db7d0923864c27419897ecc27a8754fb046e87e661",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_comparison.py",
+      "bytes": 18531,
+      "sha256": "4be6213df968f21c7f2ae6041b2de5c4def9b78740dace7557ad095f10c55165",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_conditional_planning.py",
+      "bytes": 8132,
+      "sha256": "c9b4321648b5ea3985a03648928111d210ad9751e64fca002294623c02a3a5a9",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_corrected_design.py",
+      "bytes": 10421,
+      "sha256": "89dd8a15cb38acf098bc60571843ae879a6a5c89465346418243025e9ae28032",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_corrected_figures.py",
+      "bytes": 3920,
+      "sha256": "4c8c6bcca87ba031d273a3ad972219c74d27082955c118b1eb56f49d031bce86",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_corrected_report.py",
+      "bytes": 9758,
+      "sha256": "fa0264b070c2ec074a46b340b82de70cc74e6e17f8f10d85e3678f6c5fcfaae7",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_engineering.py",
+      "bytes": 17008,
+      "sha256": "7d7607147bd075a698a3bef1ecbd4dbeff84a787c415c2cc6543823b4594fff0",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_export.py",
+      "bytes": 5940,
+      "sha256": "0615dcb523e682d02c4520a80e543c5407087a7bc7fd00a0f5588a689336f587",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_astra.py",
+      "bytes": 13123,
+      "sha256": "97031df0afe0c39d81b22c716e8cadc274ba862a6086c53a53673c69d9dea57d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_astra_council.py",
+      "bytes": 1605,
+      "sha256": "59742bace88b4afcb3c8e016a96683e7db0a1c93d55dc3b446330a1c0dd0a061",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_astra_registry.py",
+      "bytes": 2375,
+      "sha256": "aa7b9e1ca94c46d516682172caa712a0cb21006390793536dcf0ad90262a6d93",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_astra_replay.py",
+      "bytes": 4563,
+      "sha256": "ba2acff15c2424e775921fa6b5abe36bce42c56ae56eb694c5060e2d8f611d8b",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_core.py",
+      "bytes": 24434,
+      "sha256": "84a48cb6a21a495dde1cec8a3253a82f9b07ab8d1a46560e258fffa51d2c5c80",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_gateway.py",
+      "bytes": 6007,
+      "sha256": "ca563705060fe0743cbd29f64ddd9f61f3931f01b6cb5f21fd680ae369ad1e91",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_khu.py",
+      "bytes": 8769,
+      "sha256": "607e2ebf2211504ad3e2147f57600c234e126ca1e161f64ef33d369013c4d868",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_khu_feedback.py",
+      "bytes": 4607,
+      "sha256": "de7e19329d17e445c26e523710e64115992869b9bd937093e4a01c54c0b68ee0",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_portable.py",
+      "bytes": 7897,
+      "sha256": "6408d54a063d0cc19a4809556024c2fbd7fe7f37f154da18735dea31207ab79d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_review_import.py",
+      "bytes": 7194,
+      "sha256": "81a5b38c34cc6eb87b83d976906859ab657e3d5151d7329525225e8da78e21aa",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_flowpilotx_server.py",
+      "bytes": 3257,
+      "sha256": "046008a2169adfcd3e8358728562ff13535045b50a133ae032792ffa4d7e2454",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_gui_data.py",
+      "bytes": 9576,
+      "sha256": "963ff8bf6a5bab9523a4daec30053f2f01021dcd23c74cb32a5520098cc9347c",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_gui_selection.py",
+      "bytes": 10696,
+      "sha256": "2b671595ad11b0ec3eea46e379a191b4751a1f04f8c17ab2dce94c561c24850d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_gui_server.py",
+      "bytes": 9874,
+      "sha256": "5dfdb044649a51d947a7886e8e89a5e091ced9980312576b6b80dea2a81d04e4",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_handoff_integrity.py",
+      "bytes": 2901,
+      "sha256": "7cca2b437afc40c4aedef7112856f698891af93f1378d48d934da2fb4e68b568",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_materials.py",
+      "bytes": 2837,
+      "sha256": "c5c762a878e8e87757eca68776dcddde104f865dbe38de3731df6265147c63c8",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_model_gateway.py",
+      "bytes": 15195,
+      "sha256": "f38ee5e3ad5405095df2f611317391aeea1f74466f7f23f2bb40c60c1281b54e",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_observations.py",
+      "bytes": 3344,
+      "sha256": "436ed0aab996049bab4fe2f19e6967bd01c2d61673a52a628dcdca2a07919ecc",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_topology_figures.py",
+      "bytes": 4223,
+      "sha256": "b099a016923107ad379e723fb5e900a66d8055c8d689121be9d8bd5ad476a068",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_topology_report.py",
+      "bytes": 7860,
+      "sha256": "3b270c6ea99ee025c3aceed928e1294a3a04ebde662a31377f32758212443f73",
+      "mode": "100644"
+    },
+    {
+      "path": "tools/check_release.py",
+      "bytes": 17040,
+      "sha256": "b2185670816194ba1be013fd089ebb3861d80592ffc6da8affa29113682b2a06",
+      "mode": "100644"
+    },
+    {
+      "path": "tools/run_public_tests.py",
+      "bytes": 7623,
+      "sha256": "bc3e395f9d03d476304d756204a3efee79a2ed97c44fc98ead40fcb98b72aac8",
+      "mode": "100644"
+    }
+  ]
+}

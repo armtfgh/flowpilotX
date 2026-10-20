@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <rect x="5" y="5" width="230" height="230" rx="12" fill="#c4e3ef" stroke="#6397b7" stroke-width="6"/>
+  <path d="M25 105H65M175 105H214" fill="none" stroke="#305b70" stroke-width="8"/>
+  <circle cx="120" cy="105" r="54" fill="#f7fcfe" stroke="#305b70" stroke-width="7"/>
+  <path d="M95 70L156 105L95 140Z" fill="#6397b7"/>
+  <text x="120" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#305b70">Pump</text>
+</svg>

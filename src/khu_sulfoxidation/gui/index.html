@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowPilotX · Explore your next experiment</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="FlowPilotX home"><span class="brand-mark">⌘</span><span>FlowPilot<span class="brand-x">X</span></span></a>
+    <div class="brand-tag">EXPLORE WITH EVIDENCE</div>
+    <div class="workspace-label">WORKSPACE</div>
+    <button class="nav-item active" data-view="studio"><span data-icon="grid"></span> Design studio</button>
+    <button class="nav-item" data-view="evidence"><span data-icon="database"></span> Experimental history <span class="nav-count" id="nav-record-count">116</span></button>
+    <button class="nav-item" data-view="runs"><span data-icon="archive"></span> Saved design sets</button>
+    <div class="sidebar-study"><span class="tiny-dot"></span><span>KHU collaboration</span><small>Selective sulfoxidation<br>Homogeneous acridine</small></div>
+    <div class="sidebar-bottom"><div class="avatar">K</div><div>KHU workspace<small>Private · local storage</small></div><button id="about-button" class="icon-button" aria-label="About local generation"><span data-icon="info"></span></button></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb">Research workspace <span>/</span> <strong id="breadcrumb-title">Design studio</strong></div><div class="topbar-actions"><span class="local-status"><i></i> Local mode</span><button class="subtle-button" id="load-example"><span data-icon="refresh"></span> Load KHU example</button></div></header>
+    <main>
+      <section class="view" id="studio-view">
+        <div class="page-heading"><div><div class="eyebrow">FLOWPILOTX / EXPERIMENT DESIGN</div><h1>Design a flow screen.</h1><p>Frame the chemistry, then build a set of questions you can test.</p></div><button class="outline-button" id="method-button"><span data-icon="branches"></span> How selection works</button></div>
+        <div class="studio-grid">
+          <section class="setup-panel panel">
+            <div class="panel-heading"><div><span class="section-index">01</span><h2>Define your study</h2></div><span class="small-tag">KHU example</span></div>
+            <div class="input-tabs" role="tablist" aria-label="Study inputs"><button class="active" role="tab" aria-selected="true" data-input-tab="protocol">Protocol</button><button role="tab" aria-selected="false" data-input-tab="history">Batch data <span id="dataset-count">4</span></button><button role="tab" aria-selected="false" data-input-tab="apparatus">Apparatus</button></div>
+            <div class="input-pane" id="protocol-pane">
+              <label for="protocol-text">Chemistry protocol <span>CONTEXT</span></label><textarea id="protocol-text" rows="5" placeholder="Describe the chemistry, batch procedure and intended outcome."></textarea>
+              <div class="reaction"><span>Thioanisole</span><span class="reaction-arrow">⟶<small>acridine / hν / air</small></span><strong>Sulfoxide</strong><small>Track sulfone separately</small></div>
+              <div class="field-grid"><div><label for="concentration">Substrate concentration</label><div class="unit-field"><input id="concentration" type="number" value="0.25" min="0.001" step="0.01"><span>M</span></div></div><div><label for="catalyst-loading">Acridine loading</label><div class="unit-field"><input id="catalyst-loading" type="number" value="3" min="0" step="0.5"><span>mol%</span></div></div></div>
+              <div class="recipe-line"><span>EtOH</span><span>450 nm</span><span>Homogeneous</span><span>Air</span></div>
+              <label for="research-notes">Additional observations <span>OPTIONAL</span></label><textarea id="research-notes" rows="3" placeholder="Record new observations, handling notes or questions for review."></textarea><p class="field-help">Text is saved for review. Edit the numerical fields to change generated settings.</p>
+            </div>
+            <div class="input-pane hidden" id="history-pane">
+              <div class="source-summary"><div><strong id="hom-count">116</strong><span>homogeneous records</span></div><span class="reconciled"><span data-icon="check"></span> Reconciled</span></div>
+              <p class="field-help">116 Excel rows + 111 overlapping CSV rows become 116 records. Heterogeneous evidence stays separate.</p>
+              <label class="source-toggle"><input type="checkbox" id="use-khu" checked> Include original KHU evidence</label>
+              <div class="source-files"><div><span class="file-icon">XLS</span><span>Homogeneous experiments<small>116 records · original workbook</small></span><span data-icon="check"></span></div><div><span class="file-icon">CSV</span><span>Homogeneous export<small>111 overlapping records</small></span><span data-icon="check"></span></div><div><span class="file-icon muted">+2</span><span>Heterogeneous exports<small>42 records · separate evidence</small></span><span class="mini-tag">Later phase</span></div></div>
+              <label class="dropzone" id="dropzone" for="history-files"><span data-icon="upload"></span><strong>Add experimental records</strong><span>CSV, XLSX or JSON · stored locally</span><input type="file" id="history-files" accept=".csv,.xlsx,.json" multiple></label>
+              <a class="text-link" href="/api/history/template.csv" download>Download the record template <span>↗</span></a><div id="imported-files"></div><div id="import-status" role="status"></div>
+              <p class="field-help">Reported values above 100% and missing outcomes are retained. Imported evidence is attached for review; it does not fit flow kinetics.</p>
+            </div>
+            <div class="input-pane hidden" id="apparatus-pane">
+              <div class="apparatus-label"><span data-icon="sliders"></span><div>KHU inventory<small>September 2026 · proposed assembly</small></div></div>
+              <div class="field-grid"><div><label for="time-min">Transit minimum</label><div class="unit-field"><input id="time-min" type="number" value="2" min="0.1" step="0.5"><span>min</span></div></div><div><label for="time-max">Transit maximum</label><div class="unit-field"><input id="time-max" type="number" value="10" min="0.1" step="0.5"><span>min</span></div></div><div><label for="oxygen-min">Inlet O₂ minimum</label><div class="unit-field"><input id="oxygen-min" type="number" value="0.5" min="0.01" step="0.1"><span>eq</span></div></div><div><label for="oxygen-max">Inlet O₂ maximum</label><div class="unit-field"><input id="oxygen-max" type="number" value="1" min="0.01" step="0.1"><span>eq</span></div></div><div><label for="coil-volume">PFA coil / 1 mm ID</label><select id="coil-volume"><option value="2">2 mL</option><option value="5" selected>5 mL</option><option value="10">10 mL</option></select></div><div><label for="pressure">Fixed BPR</label><select id="pressure"><option value="1.5">1.5 bar</option><option value="2.5">2.5 bar</option><option value="7">7 bar</option><option value="8">8 bar</option><option value="16">16 bar</option></select></div></div>
+              <label for="temperature">Reactor temperature</label><div class="unit-field"><input id="temperature" type="number" value="25" min="25" max="80" step="1"><span>°C</span></div>
+              <div class="basis-note"><span data-icon="info"></span><p>Gauge pressure is assumed. Air delivery uses STP at 0 °C and 1.01325 bar absolute. Actual residence and MFC calibration remain unconfirmed.</p></div>
+              <div class="hardware-pair"><span>R-series pump</span><strong>0.01–10 mL/min</strong><span>FF-C00 / air</span><strong>0.01–10 STP mL/min</strong><span>Controller increments</span><strong>0.01 mL/min</strong></div>
+            </div>
+            <div class="request-panel"><div class="count-label"><div><label for="design-count">How many designs?</label><p>Unique conditions in one request</p></div><div class="count-control"><button id="count-minus" aria-label="Decrease design count">−</button><input id="design-count" type="number" value="6" min="1" max="12" aria-label="Number of unique designs"><button id="count-plus" aria-label="Increase design count">+</button></div></div><label class="repeat-toggle"><input id="include-repeat" type="checkbox" checked><span>Add one independent repeat</span><small>+1 run</small></label><button id="generate-button" class="primary-button"><span data-icon="grid"></span><span id="generate-label">Generate 6 designs</span><span data-icon="arrow"></span></button><div class="generator-mode"><span class="tiny-dot"></span> Coupled-flow calculation · no new model calls</div><div id="generation-error" class="error-message hidden" role="alert"></div></div>
+          </section>
+          <section class="results-column">
+            <div class="study-context"><div><span class="small-tag teal">HOMOGENEOUS SCREEN</span><h2>Selective sulfide → sulfoxide oxidation</h2><p>Thioanisole · acridine · EtOH · KHU</p></div><div class="study-symbol" aria-hidden="true">S<span>→</span>S<span class="oxygen-symbol">O</span></div></div>
+            <div class="panel result-panel"><div class="result-header"><div><span class="section-index">02</span><h2>Your proposed screen</h2><span class="draft-tag" id="result-status">Awaiting generation</span></div><button id="export-csv" class="outline-button small" disabled><span data-icon="download"></span> Export</button></div>
+              <div id="empty-results"><div class="empty-map"><span></span><span></span><span></span><span></span><span></span><span></span></div><h3>A set of experiments, with a reason for each.</h3><p>Choose the number of designs and generate a feasible screen.<br>The KHU example starts with three transit targets and two O₂ levels.</p></div>
+              <div id="populated-results" class="hidden">
+                <div class="set-summary"><div><strong id="set-count">6</strong><span>unique conditions</span></div><div><strong id="set-grid">3 × 2</strong><span id="set-grid-caption">transit × inlet O₂</span></div><div><strong id="set-repeat">+1</strong><span>independent repeat</span></div><div class="set-state"><span data-icon="check"></span><span>Feasibility checked<small>Under stated assumptions</small></span></div></div>
+                <div class="space-row"><div class="space-chart"><div class="mini-heading">EXPERIMENT COVERAGE <span>Proposed · unmeasured</span></div><div id="coverage-chart"></div></div><div class="selection-intent"><div class="mini-heading">WHY THIS SET</div><div><span class="intent-index">01</span><p><strong>Span exposure</strong><small>Short, middle and longer transit.</small></p></div><div><span class="intent-index">02</span><p><strong>Pair oxygen delivery</strong><small>Compare supply at each time target.</small></p></div><div><span class="intent-index">03</span><p><strong>Check reproducibility</strong><small>Repeat one condition independently.</small></p></div></div></div>
+                <div class="result-tabs" role="tablist" aria-label="Design results"><button role="tab" class="active" aria-selected="true" data-result-tab="conditions">Conditions <span id="conditions-count">6</span></button><button role="tab" aria-selected="false" data-result-tab="selection">Selection logic</button><button role="tab" aria-selected="false" data-result-tab="topology">Flow diagram</button><button role="tab" aria-selected="false" data-result-tab="assumptions">Assumptions</button></div>
+                <div class="result-pane" id="conditions-result"><div class="table-scroll"><table class="conditions-table"><thead><tr><th>Design</th><th>Transit <small>min · est.</small></th><th>Liquid <small>mL/min</small></th><th>Air inlet <small>STP mL/min</small></th><th>O₂ <small>inlet eq</small></th><th>Question</th></tr></thead><tbody id="condition-rows"></tbody></table></div><div id="repeat-row" class="repeat-row"></div></div>
+                <div class="result-pane hidden" id="selection-result"></div><div class="result-pane hidden" id="topology-result"></div><div class="result-pane hidden" id="assumptions-result"></div>
+                <div class="result-footer"><span><span data-icon="archive"></span><span id="saved-status">Version saved locally</span></span><button class="text-button" id="export-json">Full evidence & calculations <span>↗</span></button></div>
+              </div>
+            </div>
+            <div class="evidence-strip"><span class="evidence-icon" data-icon="database"></span><div><strong>KHU history provides context. Engineering sets the flows.</strong><p><span id="evidence-count-inline">116</span> homogeneous records retained. Sulfide, sulfoxide and sulfone stay separate.</p></div><button class="text-button" id="inspect-history">Inspect evidence <span>↗</span></button></div>
+            <p class="conditional-caption">Exploratory proposals, not predicted yields. Confirm the installed assembly and sampling procedure before laboratory use.</p>
+          </section>
+        </div>
+      </section>
+      <section class="view hidden" id="evidence-view"><div class="page-heading"><div><div class="eyebrow">TRACEABLE EXPERIMENTAL HISTORY</div><h1>The evidence behind the questions.</h1><p>Inspect your selected datasets, reported outcomes, source identities and unresolved discrepancies.</p></div><button class="outline-button back-studio">Back to studio <span>↗</span></button></div><div class="panel evidence-panel"><div class="evidence-toolbar"><div class="result-tabs"><button class="active" id="show-homogeneous">Homogeneous <span>116</span></button><button id="show-heterogeneous">Heterogeneous <span>42</span></button><button id="show-unspecified">Unassigned <span>0</span></button></div><input id="evidence-search" type="search" placeholder="Search record, solvent or catalyst" aria-label="Search experimental history"></div><div id="evidence-summary" class="evidence-summary"></div><div class="table-scroll"><table class="conditions-table evidence-table"><thead><tr><th>Record</th><th>Solvent</th><th>Concentration</th><th>Batch time</th><th>Sulfide</th><th>Sulfoxide</th><th>Sulfone</th><th>Source status</th></tr></thead><tbody id="evidence-rows"></tbody></table></div></div></section>
+      <section class="view hidden" id="runs-view"><div class="page-heading"><div><div class="eyebrow">VERSIONED LOCAL ARCHIVE</div><h1>Every proposal stays traceable.</h1><p>Requests, configurations, selected conditions and rejected candidates are saved together.</p></div><button class="outline-button back-studio">New design set <span>↗</span></button></div><div class="panel" id="run-list"></div></section>
+    </main>
+  </div>
+  <dialog id="detail-dialog"><div class="dialog-heading"><div><div class="eyebrow" id="detail-eyebrow">DESIGN DETAILS</div><h2 id="detail-title"></h2></div><button class="icon-button" id="close-dialog" aria-label="Close details">×</button></div><div id="detail-body"></div></dialog><div class="toast hidden" id="toast" role="status"></div>
+</body></html>

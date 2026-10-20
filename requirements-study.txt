@@ -1,0 +1,4 @@
+# Core CLI, ingestion, engineering and tests use only Python >=3.11 stdlib.
+# Optional PDF renderer, isolated from the study runtime:
+reportlab==4.4.9
+Pillow==12.3.0

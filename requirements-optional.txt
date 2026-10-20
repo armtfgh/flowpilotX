@@ -1,0 +1,4 @@
+# Optional original literature mining (flora_scout).
+# Other extraction/studio Python dependencies are in requirements-runtime.txt.
+# Figure Studio additionally uses the system ImageMagick executable.
+pyalex==0.21

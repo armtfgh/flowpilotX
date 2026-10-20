@@ -1,0 +1,26 @@
+Extract standardized intake fields from this initial protocol.
+
+Return JSON:
+{
+  "extracted_batch_fields": {
+    "reaction_description": "",
+    "photocatalyst": null,
+    "catalyst_loading_mol_pct": null,
+    "base": null,
+    "solvent": null,
+    "temperature_C": null,
+    "reaction_time_h": null,
+    "concentration_M": null,
+    "scale_mmol": null,
+    "yield_pct": null,
+    "light_source": null,
+    "wavelength_nm": null,
+    "additives": [],
+    "atmosphere": null
+  }
+}
+
+Use null for missing values. Do not add explanations.
+
+Protocol:
+{raw_protocol}

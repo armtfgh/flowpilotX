@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flowpilotx"
+version = "0.2.1"
+description = "Local question-led experimental design and feedback campaigns"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Operating System :: POSIX"]
+
+[project.scripts]
+flowpilotx = "flowpilotx.server:main"
+khu-screen = "khu_sulfoxidation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["flowpilotx*", "khu_sulfoxidation*"]
+
+[tool.setuptools.package-data]
+flowpilotx = ["gui/*.html", "gui/*.css", "gui/*.js"]
+khu_sulfoxidation = ["gui/*.html", "gui/*.css", "gui/*.js"]

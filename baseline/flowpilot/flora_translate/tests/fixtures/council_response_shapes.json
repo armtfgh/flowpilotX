@@ -1,0 +1,7 @@
+{
+  "canonical": "{\"overall_analysis\":\"ok\",\"scores\":[{\"candidate_id\":1,\"kinetics_score\":0.81}]}",
+  "provider_aliases": "{\"summary\":\"ok\",\"candidate_scores\":[{\"candidateId\":1,\"kinetics_score\":0.81}]}",
+  "id_keyed": "{\"analysis\":\"ok\",\"scores\":{\"1\":{\"kinetics_score\":0.81}}}",
+  "nested": "{\"data\":{\"evaluations\":[{\"id\":1,\"kinetics_score\":0.81}]}}",
+  "truncated_after_complete_row": "{\"overall_analysis\":\"token limited\",\"scores\":[{\"candidate_id\":1,\"kinetics_score\":0.81},{\"candidate_id\":2,\"reasoning\":\"incomplete"
+}

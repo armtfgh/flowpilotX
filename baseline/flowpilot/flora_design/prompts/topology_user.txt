@@ -1,0 +1,27 @@
+Chemistry features:
+{chem_features_json}
+
+Required unit operations (from rule-based selector):
+{unit_ops_json}
+
+Literature records from corpus (top-5 similar flow chemistry papers):
+{records_text}
+
+Generate a ProcessTopology JSON:
+{{
+  "topology_id": "primary",
+  "unit_operations": [
+    {{"op_id": "", "op_type": "", "label": "", "parameters": {{}}, "required": true, "rationale": ""}}
+  ],
+  "streams": [
+    {{"stream_id": "", "from_op": "", "to_op": "", "stream_type": "liquid", "label": ""}}
+  ],
+  "total_flow_rate_mL_min": 0,
+  "residence_time_min": 0,
+  "reactor_volume_mL": 0,
+  "pid_description": "",
+  "literature_support": [],
+  "topology_confidence": "MEDIUM"
+}}
+
+Fill ALL numerical parameters in each unit operation. Ensure residence_time * flow_rate = reactor_volume.

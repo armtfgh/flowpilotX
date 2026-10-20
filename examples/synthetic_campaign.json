@@ -1,0 +1,490 @@
+{
+  "schema_version": "flowpilotx-demo-v1",
+  "profile_id": "synthetic-demo-v1",
+  "name": "Synthetic demonstration — no experimental data",
+  "synthetic_fixture": true,
+  "experimental_validation": false,
+  "chemistry": {
+    "transformation": "Unspecified liquid-phase reaction for software demonstration",
+    "synthetic_fixture": true
+  },
+  "protocol_text": "Synthetic demonstration only. Enter your chemistry protocol, inventory, evidence and reviewed candidate pool in a new study. These invented settings are not laboratory recommendations.",
+  "objective": {
+    "mode": "explore",
+    "metric": "product_yield_pct",
+    "direction": "maximize",
+    "unit": "%",
+    "separate_components": [
+      "starting_material_pct",
+      "product_yield_pct",
+      "byproduct_pct"
+    ]
+  },
+  "inventory": {
+    "schema_version": "flowpilotx-inventory-v1",
+    "items": [
+      {
+        "id": "demo-pump",
+        "kind": "pump",
+        "name": "Invented demonstration pump",
+        "quantity": 1,
+        "availability": "available",
+        "capabilities": {
+          "synthetic_fixture": true
+        },
+        "limits": [
+          {
+            "parameter": "liquid_flow_mL_min",
+            "operator": ">=",
+            "value": 0.1,
+            "unit": "mL/min",
+            "source_reference": "synthetic-demo"
+          },
+          {
+            "parameter": "liquid_flow_mL_min",
+            "operator": "<=",
+            "value": 2.0,
+            "unit": "mL/min",
+            "source_reference": "synthetic-demo"
+          }
+        ],
+        "source_references": [
+          "Invented software fixture; no actual instrument"
+        ]
+      },
+      {
+        "id": "demo-reactor",
+        "kind": "reactor",
+        "name": "Invented demonstration reactor",
+        "quantity": 1,
+        "availability": "available",
+        "capabilities": {
+          "synthetic_fixture": true
+        },
+        "limits": [
+          {
+            "parameter": "temperature_C",
+            "operator": ">=",
+            "value": 20,
+            "unit": "degC",
+            "source_reference": "synthetic-demo"
+          },
+          {
+            "parameter": "temperature_C",
+            "operator": "<=",
+            "value": 90,
+            "unit": "degC",
+            "source_reference": "synthetic-demo"
+          }
+        ],
+        "source_references": [
+          "Invented software fixture; no actual instrument"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "demo-not-released",
+      "description": "Replace synthetic settings and confirm actual laboratory apparatus before use",
+      "scope": "release",
+      "status": "unresolved",
+      "severity": "hard",
+      "source_reference": "synthetic-demo"
+    }
+  ],
+  "questions": [
+    {
+      "id": "DEMO-Q1",
+      "question": "How would separate product, starting-material and byproduct measurements change across this synthetic control grid?",
+      "competing_explanations": [
+        "Product formation changes",
+        "Byproduct formation changes",
+        "Operational variation dominates"
+      ],
+      "expected_observations": [
+        "Separate component assays may differ across the grid; no response is predicted"
+      ],
+      "measurements": [
+        "Actual liquid flow and temperature",
+        "Separate component amounts and analytical method"
+      ],
+      "confounders": [
+        "Unmeasured temperature, residence distribution and analytical uncertainty"
+      ],
+      "decision_rules": [
+        "Review qualified measurements before revising the candidate pool"
+      ],
+      "evidence_ids": [],
+      "status": "unresolved"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "DEMO01",
+      "parameters": {
+        "temperature_C": {
+          "value": 30,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO02",
+      "parameters": {
+        "temperature_C": {
+          "value": 30,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO03",
+      "parameters": {
+        "temperature_C": {
+          "value": 40,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO04",
+      "parameters": {
+        "temperature_C": {
+          "value": 40,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO05",
+      "parameters": {
+        "temperature_C": {
+          "value": 50,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO06",
+      "parameters": {
+        "temperature_C": {
+          "value": 50,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO07",
+      "parameters": {
+        "temperature_C": {
+          "value": 60,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO08",
+      "parameters": {
+        "temperature_C": {
+          "value": 60,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO09",
+      "parameters": {
+        "temperature_C": {
+          "value": 70,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO10",
+      "parameters": {
+        "temperature_C": {
+          "value": 70,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO11",
+      "parameters": {
+        "temperature_C": {
+          "value": 80,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 0.5,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    },
+    {
+      "id": "DEMO12",
+      "parameters": {
+        "temperature_C": {
+          "value": 80,
+          "unit": "degC"
+        },
+        "liquid_flow_mL_min": {
+          "value": 1.0,
+          "unit": "mL/min"
+        }
+      },
+      "inventory_ids": [
+        "demo-pump",
+        "demo-reactor"
+      ],
+      "feasible": true,
+      "rejection_reasons": [],
+      "engineering_status": "conditional",
+      "question_ids": [
+        "DEMO-Q1"
+      ],
+      "evidence_ids": [],
+      "curiosity": "Explore complementary settings in an invented software example",
+      "rationale": "Covers a synthetic control grid; replace with a scientifically reviewed pool for actual chemistry.",
+      "diagram_note": "Synthetic software example. No installed equipment or laboratory design is claimed."
+    }
+  ],
+  "evidence": [],
+  "default_selected_candidate_ids": [
+    "DEMO01",
+    "DEMO02",
+    "DEMO05",
+    "DEMO06",
+    "DEMO09",
+    "DEMO10"
+  ],
+  "optional_repeat": {
+    "repeat_of": "DEMO06"
+  },
+  "observation_contract": {
+    "schema_version": "flowpilotx-observation-contract-v1",
+    "required_actual_conditions": [
+      "temperature_C",
+      "liquid_flow_mL_min"
+    ],
+    "parameter_mapping": {
+      "temperature_C": "temperature_C",
+      "liquid_flow_mL_min": "liquid_flow_mL_min"
+    },
+    "units": {
+      "temperature_C": "degC",
+      "liquid_flow_mL_min": "mL/min"
+    },
+    "types": {
+      "temperature_C": "number",
+      "liquid_flow_mL_min": "number"
+    },
+    "actual_conditions_template": {
+      "temperature_C": null,
+      "liquid_flow_mL_min": null
+    }
+  },
+  "source_references": [
+    "Self-contained synthetic demonstration in flowpilotx.demo; no KHU source data"
+  ],
+  "limitations": [
+    "No experimental history, model output, fitted kinetics or predicted yield is supplied",
+    "Candidate generation for new chemistry requires a reviewed pool or a chemistry adapter"
+  ]
+}

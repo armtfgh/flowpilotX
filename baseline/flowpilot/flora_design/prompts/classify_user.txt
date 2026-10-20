@@ -1,0 +1,26 @@
+User goal: {goal_text}
+
+Extract chemistry features as JSON:
+{{
+  "reaction_class": "",
+  "photocatalyst": null,
+  "photocatalyst_class": null,
+  "wavelength_nm": null,
+  "base": null,
+  "solvent": null,
+  "temperature_C": null,
+  "concentration_M": null,
+  "scale": "lab",
+  "phase_regime": "single_phase_liquid",
+  "generates_gas": false,
+  "has_solid_catalyst": false,
+  "generates_precipitate": false,
+  "O2_sensitive": true,
+  "light_sensitive_product": false,
+  "hazard_level": "low",
+  "exothermic": false,
+  "multi_step": false,
+  "number_of_steps": 1,
+  "classifier_confidence": 0.0,
+  "ambiguous_fields": []
+}}
